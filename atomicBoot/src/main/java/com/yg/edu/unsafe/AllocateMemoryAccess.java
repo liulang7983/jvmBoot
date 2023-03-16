@@ -3,13 +3,7 @@ package com.yg.edu.unsafe;
 import com.yg.edu.utils.UnsafeInstance;
 import sun.misc.Unsafe;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/8/2
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
+
 public class AllocateMemoryAccess {
 
     public static void main(String[] args) {

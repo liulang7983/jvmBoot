@@ -39,6 +39,7 @@ public class AtomicAbaProblemRunner {
             public void run() {
                 atomicInteger.incrementAndGet();// 1+1 = 2;
                 log.info("操作线程"+Thread.currentThread().getName()+"--increase后值:"+atomicInteger.get());
+                //此时如果暂停3秒多则前面会失败
                 atomicInteger.decrementAndGet();// atomic-1 = 2-1;
                 log.info("操作线程"+Thread.currentThread().getName()+"--decrease后值:"+atomicInteger.get());
             }

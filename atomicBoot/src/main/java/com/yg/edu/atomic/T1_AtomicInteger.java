@@ -3,13 +3,7 @@ package com.yg.edu.atomic;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author ：杨过
- * @date ：Created in 2020/7/3
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description:
- **/
+
 public class T1_AtomicInteger {
 
     public static int total = 0;

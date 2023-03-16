@@ -1,16 +1,9 @@
 package com.yg.edu.atomic;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.LockSupport;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/8/2
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
+
 public class AtomicStampedRerenceRunner {
 
     private static AtomicStampedReference<Integer> atomicStampedRef =

@@ -3,17 +3,11 @@ package com.yg.edu.atomic;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/14
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class AtomicIntegerFieldUpdateRunner {
 
     static AtomicIntegerFieldUpdater aifu = AtomicIntegerFieldUpdater.newUpdater(Student.class,"old");
-
+    //此时是修改AtomicIntegerFieldUpdater定义的Student里面的old字段，aifu.getAndIncrement(stu)是字段+1返回原值
+    //aifu.get(stu)获取现在的值
     public static void main(String[] args) {
         Student stu = new Student("杨过",18);
         System.out.println(aifu.getAndIncrement(stu));

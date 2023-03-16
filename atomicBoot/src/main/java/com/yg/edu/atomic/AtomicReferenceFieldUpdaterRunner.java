@@ -4,13 +4,7 @@ import lombok.Data;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.function.UnaryOperator;
 
-/**
- * @author ：杨过
- * @date ：Created in 2020/8/21
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description:
- **/
+
 public class AtomicReferenceFieldUpdaterRunner {
 
     static AtomicReferenceFieldUpdater atomic = AtomicReferenceFieldUpdater.newUpdater(Document.class,String.class,"name");
