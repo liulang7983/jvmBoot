@@ -11,6 +11,7 @@ public class Juc01_Thread_LockSupport {
      此时 LockSupport.park()会线程卡住
      LockSupport.unpark(t0)具体的线程会唤醒线程
      但是当t0.interrupt()会清除所有的线程卡主的标记
+     注意：LockSupport.park()有两个方法，不带参数是后续都不在阻塞，带参数就是放开一次
      */
 
     public static void main(String[] args) {
