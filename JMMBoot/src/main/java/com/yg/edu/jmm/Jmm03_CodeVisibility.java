@@ -1,0 +1,48 @@
+package com.yg.edu.jmm;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * @description: -server -Xcomp -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -XX:CompileCommand=compileonly,*Jmm03_CodeVisibility.refresh
+ *      -Djava.compiler=NONE
+ **/
+@Slf4j
+public class Jmm03_CodeVisibility {
+
+    /**
+     此时线程是会卡住在线程A的while的,线程B修改了initFlag的值对他无感，线程A开启的时候读取到了false，此时不会感知到修改
+     */
+
+    private static boolean initFlag = false;
+
+    private  static int counter = 0;
+
+    public static void refresh(){
+        log.info("refresh data.......");
+        initFlag = true;
+        log.info("refresh data success.......");
+    }
+
+    public static void main(String[] args){
+        Thread threadA = new Thread(()->{
+            while (!initFlag){
+                //System.out.println("runing");
+                counter++;
+            }
+            log.info("线程：" + Thread.currentThread().getName()
+                    + "当前线程嗅探到initFlag的状态的改变");
+        },"threadA");
+        threadA.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread threadB = new Thread(()->{
+            refresh();
+        },"threadB");
+        threadB.start();
+    }
+}

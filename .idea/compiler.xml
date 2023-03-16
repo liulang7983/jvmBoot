@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="syncronizedBoot" />
+        <module name="atomicBoot" />
+        <module name="demoBoot" />
+        <module name="JMMBoot" />
+        <module name="threadpoolBoot" />
+        <module name="concurrentBoot" />
+        <module name="collectionsBoot" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jvmBoot1" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="JMMBoot" options="-parameters" />
+      <module name="atomicBoot" options="-parameters" />
+      <module name="collectionsBoot" options="-parameters" />
+      <module name="concurrentBoot" options="-parameters" />
+      <module name="demoBoot" options="-parameters" />
+      <module name="syncronizedBoot" options="-parameters" />
+      <module name="threadpoolBoot" options="-parameters" />
+    </option>
+  </component>
+</project>
