@@ -3,16 +3,10 @@ package com.yg.edu.map;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/17
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :HashMap存在数据丢失示例
- */
+
 public class HashMapDataLost {
     public static final Map<String, String> map = new HashMap<String, String>();
-
+    //结果是map.size不到两千，而且中间有的key在value为null，应该是扩容的时候丢失
     public static void main(String[] args) throws InterruptedException {
         //线程一
         new Thread() {
