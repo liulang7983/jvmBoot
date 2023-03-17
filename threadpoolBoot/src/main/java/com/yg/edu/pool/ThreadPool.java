@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class ThreadPool {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Exception {
 
         /*for (int i=0;i<300;i++){
             new Thread(new Runnable() {
@@ -42,9 +42,15 @@ public class ThreadPool {
                 }
             },i);
         }
+        System.out.println(threadPoolExecutor.isTerminated());
+        //threadPoolExecutor.shutdown();  //running->shutdown
+        //threadPoolExecutor.shutdownNow(); //running->stop
+        Thread.sleep(1000);
+        /*isShutDown：当调用shutdown()或shutdownNow()方法后返回为true。
+        isTerminated：当调用shutdown()方法后，并且所有提交的任务完成后返回为true;
+        isTerminated：当调用shutdownNow()方法后，成功停止后返回为true;*/
+        System.out.println(threadPoolExecutor.isTerminated());
 
-        threadPoolExecutor.shutdown();  //running->shutdown
-        threadPoolExecutor.shutdownNow(); //running->stop
 
     }
 
