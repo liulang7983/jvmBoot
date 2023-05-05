@@ -16,6 +16,7 @@
         <module>collectionsBoot</module>
         <module>threadpoolBoot</module>
         <module>demoBoot</module>
+        <module>jdkBoot</module>
     </modules>
 
     <properties>

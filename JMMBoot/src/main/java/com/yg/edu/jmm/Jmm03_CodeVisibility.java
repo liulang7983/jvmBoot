@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Jmm03_CodeVisibility {
 
-    /**
-     此时线程是会卡住在线程A的while的,线程B修改了initFlag的值对他无感，线程A开启的时候读取到了false，此时不会感知到修改
-     */
 
-    private static boolean initFlag = false;
+ //    此时线程是会卡住在线程A的while的,线程B修改了initFlag的值对他无感，线程A开启的时候读取到了false，此时不会感知到修改
+
+
+    private static  boolean initFlag = false;
 
     private  static int counter = 0;
 
@@ -25,6 +25,7 @@ public class Jmm03_CodeVisibility {
 
     public static void main(String[] args){
         Thread threadA = new Thread(()->{
+            log.info("进入线程A");
             while (!initFlag){
                 //System.out.println("runing");
                 counter++;
@@ -35,7 +36,7 @@ public class Jmm03_CodeVisibility {
         threadA.start();
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
