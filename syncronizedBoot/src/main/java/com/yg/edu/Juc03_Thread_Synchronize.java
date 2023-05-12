@@ -1,6 +1,7 @@
 package com.yg.edu;
 
 
+//锁重入
 public class Juc03_Thread_Synchronize {
 
     private final static Object object = new Object();

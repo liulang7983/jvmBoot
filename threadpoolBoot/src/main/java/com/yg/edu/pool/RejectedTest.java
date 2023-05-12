@@ -10,8 +10,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author ming.li
  * @date 2023/3/20 11:25
+ * 自定义拒绝策越，并且在决绝策略里可以把数据写入数据库或者redis
  */
 public class RejectedTest {
+
     public static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 4, 100, TimeUnit.SECONDS, new LinkedBlockingDeque<>(200), new RejectedTest.RejectedCustom());
 
     public static void main(String[] args) {
@@ -27,11 +29,7 @@ public class RejectedTest {
 
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-
             String s = JSON.toJSONString(r);
-            if (r instanceof ThreadService) {
-                System.out.println("我是threadService");
-            }
             System.out.println("我要把:" + s + "写入到数据库,晚上定时调度再执行");
         }
     }

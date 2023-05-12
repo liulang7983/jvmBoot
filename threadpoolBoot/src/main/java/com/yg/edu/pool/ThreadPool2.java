@@ -17,8 +17,8 @@ public class ThreadPool2 {
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 5000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-        //此时停止其实停不掉，看源码可得，核心池满之前是不判断状态的，只有在添加队列的时候才会怕段状态   ! isRunning(recheck)
-        //所以所谓的shutdown()后新加入的线程不会执行只是指的是队列里的
+        //此时停止其实停不掉，看源码可得，核心池满之前是不判断状态的，但是真正加线程的时候是会判断状态的
+        //所以所谓的shutdown()后新加入的线程不会执行，但是原有任务会把任务队列里的任务执行完
         for (int i=0;i<1000;i++){
             threadPoolExecutor.submit(new Runnable() {
                 @Override
