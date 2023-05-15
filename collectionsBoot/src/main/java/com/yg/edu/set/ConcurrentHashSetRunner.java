@@ -10,8 +10,6 @@ public class ConcurrentHashSetRunner {
         CopyOnWriteArraySet<Integer> copyOnWriteArraySet = new CopyOnWriteArraySet();
         Integer nextInt = new Random().nextInt();
         copyOnWriteArraySet.add(nextInt);
-
         System.out.println(copyOnWriteArraySet.contains(nextInt));
     }
-
 }
