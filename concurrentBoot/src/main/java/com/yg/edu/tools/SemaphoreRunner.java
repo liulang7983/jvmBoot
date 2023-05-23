@@ -3,13 +3,7 @@ package com.yg.edu.tools;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/11
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :可用于流量控制，限制最大的并发访问数
- */
+
 public class SemaphoreRunner {
 
     public static void main(String[] args) {

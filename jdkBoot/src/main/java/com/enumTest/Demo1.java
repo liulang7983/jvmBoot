@@ -11,5 +11,6 @@ public class Demo1 {
         System.out.println(InvoiceType.SYSTEM_ERROR.getCode());
         System.out.println(InvoiceType.SYSTEM_ERROR.getMessage());
         System.out.println(InvoiceType.codeOf("010101").getMessage());
+        System.out.println(InvoiceType.SYSTEM_ERROR);
     }
 }
