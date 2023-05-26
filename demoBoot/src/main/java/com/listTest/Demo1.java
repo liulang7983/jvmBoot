@@ -26,5 +26,8 @@ public class Demo1 {
         System.out.println(join);
         String s = list.stream().map(User::getMessage).toString();
         System.out.println(s);
+        System.out.println("----");
+        String collect1 = list.stream().map(User::getName).collect(Collectors.joining(","));
+        System.out.println(collect1);
     }
 }
