@@ -2,13 +2,7 @@ package com.yg.edu.tools;
 
 import java.util.concurrent.Exchanger;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/15
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
+
 public class ExchangerRunner {
 
     public static void main(String []args) {
@@ -17,6 +11,7 @@ public class ExchangerRunner {
         for(int i = 0 ; i < 10 ; i++) {
             final Integer num = i;
             new Thread() {
+                @Override
                 public void run() {
                     System.out.println("我是线程：Thread_" + this.getName() + "我的数据是：" + num);
                     try {
