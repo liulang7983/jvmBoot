@@ -2,13 +2,7 @@ package com.yg.edu.tools;
 
 import java.util.concurrent.CyclicBarrier;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/15
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
+
 public class CyclicBarrierRunner implements Runnable {
     private CyclicBarrier cyclicBarrier;
     private int index ;

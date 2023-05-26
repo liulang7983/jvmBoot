@@ -9,13 +9,13 @@ import java.util.concurrent.CyclicBarrier;
 
 
 @Slf4j
-public class Juc04_Thread_Cas {
+public class ThreadCas {
     /**
      * 当前加锁状态,记录加锁的次数
      */
     private volatile int state = 0;
     private static CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
-    private static Juc04_Thread_Cas cas = new Juc04_Thread_Cas();
+    private static ThreadCas cas = new ThreadCas();
 
     public static void main(String[] args) {
         new Thread(new Worker(),"t-0").start();
@@ -62,7 +62,7 @@ public class Juc04_Thread_Cas {
 
     static {
         try {
-            stateOffset = unsafe.objectFieldOffset(Juc04_Thread_Cas.class.getDeclaredField("state"));
+            stateOffset = unsafe.objectFieldOffset(ThreadCas.class.getDeclaredField("state"));
         } catch (Exception e) {
             throw new Error();
         }

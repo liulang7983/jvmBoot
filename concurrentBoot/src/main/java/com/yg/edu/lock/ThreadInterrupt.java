@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.locks.ReentrantLock;
 
 @Slf4j
-public class Juc05_Thread_Interrupt {
+public class ThreadInterrupt {
 
     private static ReentrantLock lock = new ReentrantLock(true);
 

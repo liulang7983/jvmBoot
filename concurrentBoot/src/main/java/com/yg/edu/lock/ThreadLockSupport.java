@@ -6,7 +6,7 @@ import java.util.concurrent.locks.LockSupport;
 
 
 @Slf4j
-public class Juc01_Thread_LockSupport {
+public class ThreadLockSupport {
     /**
      此时 LockSupport.park()会线程卡住
      LockSupport.unpark(t0)具体的线程会唤醒线程
@@ -38,7 +38,13 @@ public class Juc01_Thread_LockSupport {
             log.info("准备唤醒{}线程!",t0.getName());
             LockSupport.unpark(t0);
             Thread.sleep(2000);
+            log.info("准备清除标记{}",t0.getName());
+            //标记清除,标记清除了那此时就会自动unpark一次但是后续也无法再次unpark
             t0.interrupt();
+            Thread.sleep(2000);
+            log.info("清除标记了,再次unpark{}",t0.getName());
+            //标记清除了那此时就会自动unpark一次但是后续也无法再次unpark
+            //LockSupport.unpark(t0);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -10,9 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date ：Created in 2020/5/19 16:17
  * @version: V1.0
  * @slogan: 天下风云出我辈，一入代码岁月催
- * @description: 
+ * @description:
  **/
-public class Juc04_Thread_ReentrantLock {
+public class ThreadReentrantLock2 {
     /**
      * 可重入锁，怎么实现类似于synchronized的功能
      */

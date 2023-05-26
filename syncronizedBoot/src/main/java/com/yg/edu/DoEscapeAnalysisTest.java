@@ -1,7 +1,7 @@
 package com.yg.edu;
 
 
-public class T0_ObjectStackAlloc {
+public class DoEscapeAnalysisTest {
 
     /**
      * 进行两种测试

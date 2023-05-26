@@ -3,13 +3,7 @@ package com.yg.edu.queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-/**
- * @author ：杨过
- * @date ：Created in 2020/8/16
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description:
- **/
+
 public class Main {
 
     public static void main(String[] args) {

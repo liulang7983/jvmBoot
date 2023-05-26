@@ -1,21 +1,19 @@
 package com.yg.edu.tools.countdown;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.CountDownLatch;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/7/4
- * @version: V1.0
- * @slogan:天下风云出我辈，一入代码岁月催 description：
- */
+@Slf4j
 public class CountDownLaunchRunner {
 
     static int sub = 0;
     static Object object = new Object();
+    //实现公平队列，此时只有所有线程都就绪的时候才会继续往下走
 
     public static void main(String[] args) throws InterruptedException {
         long now = System.currentTimeMillis();
-        CountDownLatch countDownLatch = new CountDownLatch(1);
+        CountDownLatch countDownLatch = new CountDownLatch(10);
 
         /*new Thread(new SeeDoctorTask(countDownLatch)).start();
         new Thread(new QueueTask(countDownLatch)).start();*/
@@ -26,7 +24,10 @@ public class CountDownLaunchRunner {
                 @Override
                 public void run() {
                     try {
+                        log.info("我是线程{},我在这等着",Thread.currentThread().getName());
+                        //所有线程在此等待，一直到全部放入完成，公平
                         countDownLatch.await();
+                        log.info("我是线程{},我进来了",Thread.currentThread().getName());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -37,12 +38,15 @@ public class CountDownLaunchRunner {
                     }
 
                 }
-            });
+            }, String.valueOf(i)).start();
+            Thread.sleep(200);
+            //等待线程池中的2个任务执行完毕，否则一直等待,zk分布式锁
+            countDownLatch.countDown();
         }
-        Thread.sleep(3000);
-        //等待线程池中的2个任务执行完毕，否则一直等待,zk分布式锁
-        countDownLatch.countDown();
+
         System.out.println("over，回家 cost:"+(System.currentTimeMillis()-now));
+        Thread.sleep(2000);
+        System.out.println("sub的值:"+sub);
     }
 
 }

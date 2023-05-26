@@ -26,6 +26,7 @@ public class NumbersConsumer implements Runnable {
             while (true) {
                 Integer number = queue.take();
                 if (number.equals(poisonPill)) {
+                    log.info("武大郎喝到毒药-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
                     return;
                 }
                 log.info("武大郎-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
