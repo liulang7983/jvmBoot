@@ -1,6 +1,6 @@
 package com.dateTest;
 
-import com.unit.DateUtil;
+import com.util.DateUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

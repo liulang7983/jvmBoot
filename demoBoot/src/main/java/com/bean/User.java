@@ -32,6 +32,9 @@ public class User {
     public void setMessage(String message) {
         this.message = message;
     }
+    public User(){
+
+    }
 
     public User(Integer id, String name, String message) {
         this.id = id;
