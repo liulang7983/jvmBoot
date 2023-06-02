@@ -1,8 +1,9 @@
 package com.model.file;
 
 
-import com.hex.ai.ui.leris.model.contract.page.*;
-import com.hex.ai.ui.leris.utils.Func;
+
+import com.model.Func;
+import com.model.contract.page.*;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;

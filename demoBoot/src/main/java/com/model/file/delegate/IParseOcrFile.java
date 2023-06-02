@@ -1,7 +1,9 @@
 package com.model.file.delegate;
 
 
-import com.hex.ai.ui.leris.model.contract.page.*;
+import com.model.contract.page.LineNum;
+import com.model.contract.page.PageContent;
+import com.model.contract.page.WordIndexNum;
 
 /**
  * 解析ocr处理后返回的文件，用于参数传递回调

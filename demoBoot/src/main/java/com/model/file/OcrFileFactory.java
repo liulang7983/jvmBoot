@@ -1,7 +1,7 @@
 package com.model.file;
 
 
-import com.hex.ai.ui.leris.model.contract.OcrEngineOpt;
+import com.model.contract.OcrEngineOpt;
 
 public class OcrFileFactory {
     private static OcrFileFactory self = null;

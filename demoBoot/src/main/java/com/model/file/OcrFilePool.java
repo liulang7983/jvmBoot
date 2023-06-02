@@ -1,9 +1,11 @@
 package com.model.file;
 
 
-import com.hex.ai.ui.leris.model.contract.*;
-import com.hex.ai.ui.leris.model.contract.page.*;
-import com.hex.ai.ui.leris.model.file.delegate.IParseOcrFile;
+
+import com.model.contract.OcrEngineOpt;
+import com.model.contract.OcrPageSource;
+import com.model.contract.page.*;
+import com.model.file.delegate.IParseOcrFile;
 
 import java.awt.*;
 import java.util.ArrayList;

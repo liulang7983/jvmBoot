@@ -1,10 +1,14 @@
 package com.model.file;
 
 
-import com.hex.ai.ui.leris.model.contract.Json2dataConstants;
-import com.hex.ai.ui.leris.model.contract.page.*;
-import com.hex.ai.ui.leris.model.intsigTable.*;
-import com.hex.ai.ui.leris.utils.Func;
+
+import com.model.Func;
+import com.model.contract.Json2dataConstants;
+import com.model.contract.page.*;
+import com.model.intsigTable.IntsigTable;
+import com.model.intsigTable.Lines;
+import com.model.intsigTable.TableCells;
+import com.model.intsigTable.Tables;
 
 import java.awt.*;
 import java.io.File;
@@ -53,7 +57,7 @@ class IntsigEngineImpl extends OcrFilePool {
             }
             IntsigTable intsigTable = Func.jsonString2Object(sbJSON.toString(),IntsigTable.class);
             angle = intsigTable.getResult().getAngle();
-            Tables[] tables = intsigTable.getResult().getTables();
+            com.model.intsigTable.Tables[] tables = intsigTable.getResult().getTables();
             for (Tables table:tables){
                 if (table.getType().equals(Json2dataConstants.PLAIN)){
                     Lines[] lines = table.getLines();
