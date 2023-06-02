@@ -7,8 +7,6 @@
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdkBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/java" charset="UTF-8" />
   </component>

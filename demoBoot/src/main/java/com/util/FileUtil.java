@@ -52,8 +52,29 @@ public class FileUtil {
         }
         String s = JSONObject.toJSONString(map);
         CheckInvoice checkInvoice = JSON.parseObject(s, CheckInvoice.class);
-
-
         return checkInvoice;
+    }
+
+    public static Map getChange(){
+        JSONObject jsonstr=new JSONObject();
+        String str=readResourceFileToString("1.json","utf-8");
+        JSONObject message = JSONObject.parseObject(str);
+        String strJson = readResourceFileToString("OcrFieldMap.json","utf-8");
+        //获取保持顺序的json
+        LinkedHashMap<String, Object> json = JSON.parseObject(strJson, LinkedHashMap.class, Feature.OrderedField);
+        JSONObject jsonObject = new JSONObject(true);
+        jsonObject.putAll(json);
+        JSONObject typeJsonObject = jsonObject.getJSONObject("cat");
+        Set<String> typeKeySet = typeJsonObject.keySet();
+        Map<String, JSONObject> map = new HashMap<>();//用来存放值
+        for (String key : typeKeySet) {
+            if (message.containsKey(key)) {
+                jsonstr.put(typeJsonObject.getString(key), message.get(key));
+            }
+        }
+        map.put("k1",message);
+        map.put("k2",jsonstr);
+
+        return map;
     }
 }
