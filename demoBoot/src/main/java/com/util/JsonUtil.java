@@ -208,14 +208,14 @@ public class JsonUtil {
         逆时针旋转90识别，定位出现问题
          */
         Float angle = tableOCRResp.getAngle();
-        if (angle != null) {
+      /*  if (angle != null) {
             hexOCRResult.setAngle(angle);
             try {
                 ImageTools.rotateImage(new File(imageFilePath), Integer.parseInt(Float.compare(angle, 0.0f) != 0 ? angle.toString().substring(0, angle.toString().lastIndexOf(".")) : "0"));
             } catch (Exception e) {
                 logger.error("rotateImage exception [{}]", e);
             }
-        }
+        }*/
         hexOCRResult.setType(LerisConstants.CHECK_TYPE_ZDW_FJ);
         for (Table table : tableOCRResp.getTableRes().getTables()) {
             if (table.getType() == 0) {
@@ -368,22 +368,28 @@ public class JsonUtil {
         return jsonResult;
     }
 
+    /**
+     * 优图高精度表格识别结果转标准json
+     *
+     * @param jsonStr
+     * @return
+     */
     public static HexOCRResult jsonToHexOCRHighResult(String jsonStr, String imageFilePath) {
         if (StringUtils.isBlank(jsonStr)) {
             return null;
         }
-        TableOCRResp tableOCRResp = JSON.parseObject(jsonStr, TableOCRResp.class);
-        if (tableOCRResp.getErrorcode() != 0) {
+        TableOCRHighResp tableOCRResp = JSON.parseObject(jsonStr, TableOCRHighResp.class);
+        if (tableOCRResp.getError_code() != 0) {
             return null;
         }
-        if (tableOCRResp.getTableRes().getTables().size() == 0) {
+        if (tableOCRResp.getRecognize_list().size()==0) {
             return null;
         }
         HexOCRResult hexOCRResult = new HexOCRResult();
         /*
         逆时针旋转90识别，定位出现问题
          */
-        Float angle = tableOCRResp.getAngle();
+        Float angle = tableOCRResp.getRecognize_list().get(0).getAngle();
         if (angle != null) {
             hexOCRResult.setAngle(angle);
             try {
@@ -393,13 +399,7 @@ public class JsonUtil {
             }
         }
         hexOCRResult.setType(LerisConstants.CHECK_TYPE_ZDW_FJ);
-        for (Table table : tableOCRResp.getTableRes().getTables()) {
-            if (table.getType() == 0) {
-                dealTextType(table, hexOCRResult);
-            } else {
-                dealTableType(table, hexOCRResult);
-            }
-        }
+
         return hexOCRResult;
     }
 }

@@ -17,6 +17,35 @@ import java.util.Set;
  */
 public class FileUtil {
     public static String readResourceFileToString(String fileName, String cs) {
+        /*StringBuilder sb = new StringBuilder();
+        try (InputStream is = new FileInputStream(fileName);
+             InputStreamReader isr = new InputStreamReader(is, cs)) {
+            try (BufferedReader reader = new BufferedReader(isr)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line.trim());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("获取文件出错:"+e);
+        }
+        return sb.toString();*/
+        StringBuilder sb = new StringBuilder();
+        try (InputStream is = FileUtil.class.getClassLoader().getResourceAsStream(fileName);
+             InputStreamReader isr = new InputStreamReader(is, cs)) {
+            try (BufferedReader reader = new BufferedReader(isr)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line.trim());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("获取文件出错:"+e);
+        }
+        return sb.toString();
+    }
+
+    public static String readFileToString(String fileName, String cs) {
         StringBuilder sb = new StringBuilder();
         try (InputStream is = new FileInputStream(fileName);
              InputStreamReader isr = new InputStreamReader(is, cs)) {
@@ -30,6 +59,7 @@ public class FileUtil {
             System.out.println("获取文件出错:"+e);
         }
         return sb.toString();
+
     }
 
     public static CheckInvoice getCatByItems(String str){

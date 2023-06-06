@@ -23,4 +23,9 @@ public class JsonController {
 
         return jsonService.youtu();
     }
+    @RequestMapping("/youtuHigh")
+    public HexOCRResult youtuHigh(){
+
+        return jsonService.youtuHigh();
+    }
 }

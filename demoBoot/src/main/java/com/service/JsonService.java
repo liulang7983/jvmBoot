@@ -8,4 +8,5 @@ import com.model.json.HexOCRResult;
  */
 public interface JsonService {
     HexOCRResult youtu();
+    HexOCRResult youtuHigh();
 }
