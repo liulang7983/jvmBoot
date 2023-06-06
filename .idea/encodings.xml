@@ -2,12 +2,28 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/JMMBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JMMBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/atomicBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/atomicBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumer-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumer-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-provide-payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-provide-payment/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demoBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdkBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jdkBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/resources" charset="UTF-8" />
   </component>
 </project>

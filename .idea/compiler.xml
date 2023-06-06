@@ -10,7 +10,11 @@
         <module name="syncronizedBoot" />
         <module name="atomicBoot" />
         <module name="demoBoot" />
+        <module name="cloud-eureka-server" />
         <module name="JMMBoot" />
+        <module name="cloud-api-commons" />
+        <module name="cloud-consumer-order" />
+        <module name="cloud-provide-payment" />
         <module name="threadpoolBoot" />
         <module name="concurrentBoot" />
         <module name="collectionsBoot" />
@@ -23,14 +27,14 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="JMMBoot" options="-parameters" />
-      <module name="atomicBoot" options="-parameters" />
-      <module name="collectionsBoot" options="-parameters" />
-      <module name="concurrentBoot" options="-parameters" />
-      <module name="demoBoot" options="-parameters" />
-      <module name="jdkBoot" options="-parameters" />
-      <module name="syncronizedBoot" options="-parameters" />
-      <module name="threadpoolBoot" options="-parameters" />
+      <module name="JMMBoot" options="" />
+      <module name="atomicBoot" options="" />
+      <module name="collectionsBoot" options="" />
+      <module name="concurrentBoot" options="" />
+      <module name="demoBoot" options="" />
+      <module name="jdkBoot" options="" />
+      <module name="syncronizedBoot" options="" />
+      <module name="threadpoolBoot" options="" />
     </option>
   </component>
 </project>
