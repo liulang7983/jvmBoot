@@ -21,6 +21,9 @@
         <module>cloud-eureka-server</module>
         <module>cloud-provide-payment</module>
         <module>cloud-consumer-order</module>
+        <module>cloud-providerconsul-payment</module>
+        <module>cloud-consumerconsul-order</module>
+        <module>cloud-consumer-feign-order</module>
     </modules>
 
     <properties>

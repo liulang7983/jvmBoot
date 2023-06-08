@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author ming.li
@@ -67,5 +68,12 @@ public class PaymentControler {
             System.out.println(service);
         }
         return this.discoveryClient;
+    }
+
+    @RequestMapping("/getportTimeOut")
+    public Integer getportTimeOut() throws InterruptedException {
+        System.out.println("getportTimeOut被调用");
+        TimeUnit.SECONDS.sleep(5);
+        return port;
     }
 }

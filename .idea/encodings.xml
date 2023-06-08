@@ -7,12 +7,18 @@
     <file url="file://$PROJECT_DIR$/atomicBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumer-feign-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumer-feign-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-consumer-order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-consumer-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumerconsul-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-consumerconsul-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-eureka-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-provide-payment/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-provide-payment/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-providerconsul-payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-providerconsul-payment/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/java" charset="UTF-8" />

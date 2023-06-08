@@ -9,4 +9,4 @@ eureka:
     fetch-registry: true  #是否从EurekaServer中抓取已有的注册信息，默认为true，单点无所谓，集群必须设置true才能和ribbon使用负载均衡
     service-url:
       #单机配置
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka

@@ -23,6 +23,8 @@ import java.util.Map;
 public class ExcelServiceImpl implements ExcelService {
     @Override
     public String upload(MultipartFile file) {
+        System.out.println(file.getOriginalFilename());
+        System.out.println(file.getName());
         byte[] bytes = xls2Bytes(file);
         if (bytes == null) {
             return "解析失败";
