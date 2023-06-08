@@ -1,6 +1,8 @@
 package com.service.impl;
 
 import com.alibaba.excel.EasyExcelFactory;
+import com.bean.ApiResult;
+import com.enumUtil.ERetCode;
 import com.excel.ExcelDataListener;
 import com.service.ExcelService;
 import org.apache.poi.xssf.usermodel.*;
@@ -12,6 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -22,12 +25,15 @@ import java.util.Map;
 @Service
 public class ExcelServiceImpl implements ExcelService {
     @Override
-    public String upload(MultipartFile file) {
-        System.out.println(file.getOriginalFilename());
+    public String upload(MultipartFile file) throws IOException {
+        String originalFilename = file.getOriginalFilename();
+        System.out.println(originalFilename);
         System.out.println(file.getName());
-        byte[] bytes = xls2Bytes(file);
-        if (bytes == null) {
-            return "解析失败";
+        String substring = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
+        System.out.println();
+        int index = originalFilename.lastIndexOf(".");
+        if (index==-1||!("xlsx".equalsIgnoreCase(substring)||"xls".equalsIgnoreCase(substring))){
+            return "文件格式非execl格式";
         }
         /*
          初始化一个监听器
@@ -36,17 +42,21 @@ public class ExcelServiceImpl implements ExcelService {
         /*
          读取文件数据
          */
-        InputStream inputStream = new ByteArrayInputStream(bytes);
-        EasyExcelFactory.read(inputStream, excelDataListener).sheet().doRead();
-        try {
-            inputStream.close();
-        } catch (IOException e) {
 
+        EasyExcelFactory.read(file.getInputStream(), excelDataListener).sheet().doRead();
+        List<Map<Integer, String>> headList = excelDataListener.getHeadList();
+        Map<Integer, String> stringMap = headList.get(0);
+        int size1 = stringMap.size();
+        Collection<String> values = stringMap.values();
+        if (!stringMap.get(0).contains("发票代码")){
+            return "第一列非发票代码";
         }
+
         List<Map<Integer, String>> dataList = excelDataListener.getDataList();
         for (int i = 0; i < dataList.size(); i++) {
             Map<Integer, String> map = dataList.get(i);
             int size = map.size();
+            String s = map.get(4);
             for (int j = 0; j < size; j++) {
                 System.out.println(map.get(j));
             }
@@ -84,17 +94,5 @@ public class ExcelServiceImpl implements ExcelService {
             e.printStackTrace();
         }
 
-    }
-
-    private static byte[] xls2Bytes(MultipartFile file) {
-        byte[] bytes = null;
-        try {
-            if (file != null) {
-                bytes = file.getBytes();
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        return bytes;
     }
 }

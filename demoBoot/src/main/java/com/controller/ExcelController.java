@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @author ming.li
@@ -21,11 +22,11 @@ public class ExcelController {
     private ExcelService excelService;
     //解析execl
     @RequestMapping("/upload")
-    public String upload(@RequestParam("file") MultipartFile file){
+    public String upload(@RequestParam("file") MultipartFile file) throws IOException {
         return excelService.upload(file);
     }
 
-    //解析execl
+    //下载execl
     @RequestMapping("/downloadExcel")
     public void downloadExcel(HttpServletResponse response){
          excelService.downloadExcel(response);
