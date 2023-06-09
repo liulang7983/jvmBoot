@@ -8,8 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-consumerconsul-order" />
+        <module name="cloud-consumer-feign-hystrix-order" />
         <module name="atomicBoot" />
         <module name="cloud-api-commons" />
+        <module name="cloud-provider-hystrix-payment" />
         <module name="threadpoolBoot" />
         <module name="syncronizedBoot" />
         <module name="demoBoot" />
