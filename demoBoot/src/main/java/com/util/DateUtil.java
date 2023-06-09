@@ -1,5 +1,10 @@
 package com.util;
 
+import org.apache.commons.lang3.time.DateUtils;
+import org.apache.logging.log4j.LogManager;
+import org.springframework.util.StringUtils;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -182,5 +187,24 @@ public class DateUtil {
         }
 
         return value;
+    }
+
+    public static String getYearMonth(String val, String patten) {
+        if (StringUtils.hasText(val)) {
+            try {
+                String[] dateFormats = new String[]{"yyyy-MM-dd", "yyyy年MM月dd日", "yyyy/MM/dd", "yyyyMMdd", "yyyy.MM.dd", "yyyy年M月dd日","yyyy-MM-dd hh:mm:ss","yyyyMMdd hh:mm:ss"};
+                Date date = DateUtils.parseDate(val, dateFormats);
+                String val2 = format(date, patten);
+                return val2;
+            } catch (Exception var5) {
+                LogManager.getLogger(DateUtil.class).error("getYearMonth exception:{}", var5);
+            }
+        }
+
+        return "";
+    }
+    public static String format(Date date, String patten) {
+        DateFormat format2 = new SimpleDateFormat(patten);
+        return format2.format(date);
     }
 }
