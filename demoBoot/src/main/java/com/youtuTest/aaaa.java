@@ -1,4 +1,4 @@
-package com.jsonTest;
+package com.youtuTest;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class aaaa {
 
     public static void main(String[] args) {
-        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\高精度2.json", "utf-8");
+        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\少识别.json", "utf-8");
         String v2Str = v3Tov2(v3Str);
         System.out.println(v2Str);
     }

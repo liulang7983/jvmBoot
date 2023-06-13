@@ -7,7 +7,7 @@
     </select>-->
 
     <select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">
-        SELECT CASE WHEN if(isnull(buyer),0,1)=1  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i LEFT JOIN T_AI_IAS_REMARK r on i.REMARK_ID=r.REMARK_ID where r.CRT_USER='lmm' and r.TENANT_ID='lm' and i.BUYER like '%金鸿%'
+        SELECT distinct CASE WHEN if(isnull(#{buyer}),0,1)=1  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i  where BUYER like '%致宇%'
     </select>
 
 </mapper>
