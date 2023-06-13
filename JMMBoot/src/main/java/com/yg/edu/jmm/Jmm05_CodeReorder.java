@@ -62,10 +62,11 @@ public class Jmm05_CodeReorder {
 
             String result = "第" + i + "次 (" + x + "," + y + "）";
             if(x == 0 && y == 0) {
+                System.out.println("发生了指令重排");
                 System.out.println(result);
                 break;
             } else {
-                log.info(result);
+                System.out.println(result);
             }
         }
 

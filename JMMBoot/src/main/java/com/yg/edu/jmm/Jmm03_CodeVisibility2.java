@@ -18,9 +18,9 @@ public class Jmm03_CodeVisibility2 {
     private  static int counter = 0;
 
     public static void refresh(){
-        log.info("refresh data.......");
+        System.out.println("refresh data.......");
         initFlag = true;
-        log.info("refresh data success.......");
+        System.out.println("refresh data success.......");
     }
 
     public static void main(String[] args){
@@ -30,7 +30,7 @@ public class Jmm03_CodeVisibility2 {
                 //System.out.println("runing");
                 counter++;
             }
-            log.info("线程：" + Thread.currentThread().getName()
+            System.out.println("线程：" + Thread.currentThread().getName()
                     + "当前线程嗅探到initFlag的状态的改变");
         },"threadA");
         threadA.start();

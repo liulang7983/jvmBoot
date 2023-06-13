@@ -7,7 +7,7 @@ import javax.security.sasl.SaslServer;
 
 public class Jmm04_CodeAtomic {
     /**
-     此时的值不一定是1000，因为counter++分三步- 读，自加，写回，此时分为10个线程，volatile不保证原子性
+     此时的值不一定是10000，因为counter++分三步- 读，自加，写回，此时分为10个线程，volatile不保证原子性
      */
 
     private volatile static int counter = 0;

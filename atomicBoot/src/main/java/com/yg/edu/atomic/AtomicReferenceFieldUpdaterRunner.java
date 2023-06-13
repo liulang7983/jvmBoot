@@ -1,6 +1,5 @@
 package com.yg.edu.atomic;
 
-import lombok.Data;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.function.UnaryOperator;
 
@@ -28,7 +27,6 @@ public class AtomicReferenceFieldUpdaterRunner {
 
     }
 
-    @Data
     static class Document{
         public volatile String name;
         private int version;
@@ -38,5 +36,12 @@ public class AtomicReferenceFieldUpdaterRunner {
             version = v;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 }

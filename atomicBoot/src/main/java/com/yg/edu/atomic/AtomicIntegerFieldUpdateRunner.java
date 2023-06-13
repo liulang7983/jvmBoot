@@ -10,6 +10,7 @@ public class AtomicIntegerFieldUpdateRunner {
     //aifu.get(stu)获取现在的值
     public static void main(String[] args) {
         Student stu = new Student("杨过",18);
+        //返回旧值，
         System.out.println(aifu.getAndIncrement(stu));
         System.out.println(aifu.getAndIncrement(stu));
         System.out.println(aifu.get(stu));

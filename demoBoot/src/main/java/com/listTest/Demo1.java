@@ -19,7 +19,8 @@ public class Demo1 {
         list.add(new User(2,"lm2","lm22"));
         list.add(new User(3,"lm3","lm33"));
         list.add(new User(4,"lm4","lm44"));
-        list.add(new User(4,"lm4",null));
+        list.add(new User(5,"lm5",null));
+        list.add(new User(6,"lm6","lm66"));
         List<String> collect = list.stream().map(User::getMessage).collect(Collectors.toList());
         System.out.println(collect);
         String join = StringUtil.join(",", collect);
@@ -27,8 +28,14 @@ public class Demo1 {
         String s = list.stream().map(User::getMessage).toString();
         System.out.println(s);
         System.out.println("----");
-        String collect1 = list.stream().map(User::getName).collect(Collectors.joining(","));
+        String collect1 = list.stream().map(User::getMessage).collect(Collectors.joining(","));
         System.out.println(collect1);
         System.out.println(list.get(list.size()-1));
+
+        String collect2 = list.stream().map(User::getMessage).collect(Collectors.joining("\r\n"));
+        String replace = collect2.replace("null", "");
+        System.out.println("换行符："+collect2);
+        System.out.println("-------------");
+        System.out.println(replace);
     }
 }
