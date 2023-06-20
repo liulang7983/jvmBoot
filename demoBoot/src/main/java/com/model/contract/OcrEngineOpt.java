@@ -26,5 +26,9 @@ public enum OcrEngineOpt {
     /**
      * 表格引擎
      */
-    TABLE
+    TABLE,
+    /**
+     * 高精度表格引擎
+     */
+    HIGHTABLE
 }

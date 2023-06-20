@@ -7,7 +7,7 @@
     </select>-->
 
     <select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">
-        SELECT distinct CASE WHEN if(isnull(#{buyer}),0,1)=1  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i  where BUYER like '%致宇%'
+        SELECT distinct CASE if(isnull(#{buyer}),0,1) WHEN 0  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i  where BUYER like '%致宇%'
     </select>
 
 </mapper>

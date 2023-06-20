@@ -31,6 +31,8 @@ public class OcrFileFactory {
             case INTSIG:
                 obj = new IntsigEngineImpl();
                 break;
+            case HIGHTABLE:
+                obj=new HighTableEngineEngineImpl();
         }
         obj.setEngineOpt(opt);
         return obj;
