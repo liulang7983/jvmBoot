@@ -29,7 +29,7 @@ public class FullTextHigh {
         OcrFileFactory ocrFileFactory = OcrFileFactory.GetInstance();
         OcrFilePool filePool = ocrFileFactory.getOcrFilePoolInstance(OcrEngineOpt.HIGHTABLE);
         Compare compare = new Compare();
-        String path = "C:\\Users\\ken\\Desktop\\日志\\识别结果\\高精度2.json";
+        String path = "C:\\Users\\ken\\Desktop\\日志\\识别结果\\无表头\\识别.json";
         File dir = new File(path);
         List<String> list=new ArrayList<>();
         list.add(path);

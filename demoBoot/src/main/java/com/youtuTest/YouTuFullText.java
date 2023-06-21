@@ -18,7 +18,7 @@ public class YouTuFullText {
         OcrFileFactory ocrFileFactory = OcrFileFactory.GetInstance();
         OcrFilePool filePool = ocrFileFactory.getOcrFilePoolInstance(OcrEngineOpt.TABLE);
         Compare compare = new Compare();
-        String path = "C:\\Users\\ken\\Desktop\\日志\\识别结果\\247dc47a909245d8bf568e5ae2d61b84.json";
+        String path = "C:\\Users\\ken\\Desktop\\日志\\识别结果\\无表头\\识别.json";
         File dir = new File(path);
         List<String> list=new ArrayList<>();
         list.add(path);

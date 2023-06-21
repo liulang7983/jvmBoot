@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TableHigh {
 
     public static void main(String[] args) {
-        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\表头.json", "utf-8");
+        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\无表头\\识别.json", "utf-8");
         String v2Str = v3Tov2(v3Str);
         System.out.println(v2Str);
     }
@@ -95,7 +95,7 @@ public class TableHigh {
 
     public static void highText(JSONObject tableElem, JSONArray itemList, HexOCRResult hexOCRResult){
         HexSection hexSection = new HexSection();
-        hexSection.setType(1);
+        hexSection.setType(0);
         JSONObject tableInerElem = tableElem.getJSONObject("elem_content");
         JSONArray elemInerList = tableInerElem.getJSONArray("elem_list");
         JSONObject table = elemInerList.getJSONObject(0);
