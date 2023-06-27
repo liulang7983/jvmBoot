@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TableHigh {
 
     public static void main(String[] args) {
-        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\无表头\\识别.json", "utf-8");
+        String v3Str = FileUtil.readFileToString("C:\\Users\\ken\\Desktop\\日志\\识别结果\\优图\\A提取为逗号.json", "utf-8");
         String v2Str = v3Tov2(v3Str);
         System.out.println(v2Str);
     }

@@ -6,7 +6,7 @@ import java.util.*;
  * @author ming.li
  * @date 2023/6/19 9:46
  */
-public class Demo2 {
+public class SortDemo2 {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
         map.put(2, "2");

@@ -8,6 +8,5 @@ public class Demo4 {
     public static void main(String[] args) {
         String str="2023-06-06".replace("-","");
         System.out.println(str);
-
     }
 }

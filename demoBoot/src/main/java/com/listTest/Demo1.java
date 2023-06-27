@@ -21,10 +21,11 @@ public class Demo1 {
         list.add(new User(4,"lm4","lm44"));
         list.add(new User(5,"lm5",null));
         list.add(new User(6,"lm6","lm66"));
+        //获得message的集合
         List<String> collect = list.stream().map(User::getMessage).collect(Collectors.toList());
         System.out.println(collect);
         String join = StringUtil.join(",", collect);
-        System.out.println(join);
+        System.out.println("join:"+join);
         String s = list.stream().map(User::getMessage).toString();
         System.out.println(s);
         System.out.println("----");
