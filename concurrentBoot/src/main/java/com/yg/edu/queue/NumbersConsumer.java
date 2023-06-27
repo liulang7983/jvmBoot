@@ -26,10 +26,10 @@ public class NumbersConsumer implements Runnable {
             while (true) {
                 Integer number = queue.take();
                 if (number.equals(poisonPill)) {
-                    log.info("武大郎喝到毒药-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
+                    System.out.println("武大郎喝到毒药-"+Thread.currentThread().getId()+"号,喝药-编号:"+number);
                     return;
                 }
-                log.info("武大郎-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
+                System.out.println("武大郎-"+Thread.currentThread().getId()+"号,喝药-编号:"+number);
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();

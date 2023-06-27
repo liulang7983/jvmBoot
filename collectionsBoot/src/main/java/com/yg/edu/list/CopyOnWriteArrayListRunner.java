@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class CopyOnWriteArrayListRunner {
-
     //使用ArrayList会报java.util.ConcurrentModificationException
-
     /**
      * 读线程
      * @author wangjie
@@ -15,11 +13,9 @@ public class CopyOnWriteArrayListRunner {
      */
     private static class ReadTask implements Runnable {
         List<String> list;
-
         public ReadTask(List<String> list) {
             this.list = list;
         }
-
         @Override
         public void run() {
             for (String str : list) {

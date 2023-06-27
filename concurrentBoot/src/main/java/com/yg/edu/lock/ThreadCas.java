@@ -8,7 +8,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 
-@Slf4j
+
 public class ThreadCas {
     /**
      * 当前加锁状态,记录加锁的次数
@@ -29,13 +29,13 @@ public class ThreadCas {
 
         @Override
         public void run() {
-            log.info("请求:{}到达预定点,准备开始抢state:)",Thread.currentThread().getName());
+            System.out.println("请求:{}到达预定点,准备开始抢state:)"+Thread.currentThread().getName());
             try {
                 cyclicBarrier.await();
                 if(cas.compareAndSwapState(0,1)){
-                    log.info("当前请求:{},抢到锁!",Thread.currentThread().getName());
+                    System.out.println("当前请求:{},抢到锁!"+Thread.currentThread().getName());
                 }else{
-                    log.info("当前请求:{},抢锁失败!",Thread.currentThread().getName());
+                    System.out.println("当前请求:{},抢锁失败!"+Thread.currentThread().getName());
                 }
             } catch (InterruptedException|BrokenBarrierException e) {
                 e.printStackTrace();

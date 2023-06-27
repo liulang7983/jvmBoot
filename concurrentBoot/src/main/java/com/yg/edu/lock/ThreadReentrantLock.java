@@ -12,13 +12,12 @@ public class ThreadReentrantLock {
 
     public static void reentrantLock(){
         String threadName = Thread.currentThread().getName();
-        log.info("Thread:{},进入了方法",threadName);
+        System.out.println("Thread:{},进入了方法"+threadName);
         //默认创建的是独占锁，排它锁；同一时刻读或者写只允许一个线程获取锁
         lock.lock();
-        log.info("Thread:{},第一次加锁",threadName);
-        log.info("获得state：{}");
+        System.out.println("Thread:{},第一次加锁"+threadName);
             lock.lock();
-            log.info("Thread:{},第二次加锁",threadName);
+        System.out.println("Thread:{},第二次加锁"+threadName);
             lock.unlock();
             boolean flag = true;
             while(true){
@@ -26,9 +25,9 @@ public class ThreadReentrantLock {
                     break;
                 }
             }
-            log.info("Thread:{},第一次解锁",threadName);
+        System.out.println("Thread:{},第一次解锁"+threadName);
         lock.unlock();
-        log.info("Thread:{},第二次解锁",threadName);
+        System.out.println("Thread:{},第二次解锁"+threadName);
     }
 
     public static void reen2(){

@@ -24,10 +24,10 @@ public class CountDownLaunchRunner {
                 @Override
                 public void run() {
                     try {
-                        log.info("我是线程{},我在这等着",Thread.currentThread().getName());
+                        System.out.println("我是线程"+Thread.currentThread().getName()+",我在这等着");
                         //所有线程在此等待，一直到全部放入完成，公平
                         countDownLatch.await();
-                        log.info("我是线程{},我进来了",Thread.currentThread().getName());
+                        System.out.println("我是线程"+Thread.currentThread().getName()+",我进来了");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

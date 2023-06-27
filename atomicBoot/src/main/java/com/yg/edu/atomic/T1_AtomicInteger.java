@@ -11,7 +11,6 @@ public class T1_AtomicInteger {
 
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(10);
-
         for(int i=0;i<10;i++){
             new Thread(()->{
                 for(int j=0;j<1000;j++){
@@ -23,7 +22,6 @@ public class T1_AtomicInteger {
                 countDownLatch.countDown();
             }).start();
         }
-
         countDownLatch.await();
         System.out.println(atomic.get());
     }

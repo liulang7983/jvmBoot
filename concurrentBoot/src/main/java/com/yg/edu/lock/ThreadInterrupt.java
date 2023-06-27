@@ -13,7 +13,7 @@ public class ThreadInterrupt {
         String threadName = Thread.currentThread().getName();
         boolean flag = false;
         lock.lockInterruptibly();
-            log.info("Thread:{},加锁成功!",threadName);
+        System.out.println("Thread:{},加锁成功!"+threadName);
             while(true){
                 if(Thread.interrupted()){
                     break;
@@ -22,7 +22,7 @@ public class ThreadInterrupt {
                 //逻辑
             }
         lock.unlock();
-        log.info("Thread:{},锁退出同步块",threadName);
+        System.out.println("Thread:{},锁退出同步块"+threadName);
     }
 
     public static void main(String[] args) {

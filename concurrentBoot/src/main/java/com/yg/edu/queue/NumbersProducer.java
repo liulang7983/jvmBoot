@@ -28,7 +28,7 @@ public class NumbersProducer implements Runnable {
     private void generateNumbers() throws InterruptedException {
         for (int i = 0; i < 100; i++) {
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
-            log.info("潘金莲-{}号,给武大郎的泡药！",Thread.currentThread().getId());
+            System.out.println("潘金莲-"+Thread.currentThread().getId()+"号,给武大郎的泡药！");
         }
         /*while(true){
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
@@ -37,7 +37,7 @@ public class NumbersProducer implements Runnable {
 
         for (int j = 0; j < poisonPillPerProducer; j++) {
             numbersQueue.put(poisonPill);
-            log.info("潘金莲-{}号,往武大郎的药里放入第{}颗毒丸！",Thread.currentThread().getId(),j+1);
+            System.out.println("潘金莲-"+Thread.currentThread().getId()+"号,往武大郎的药里放入第"+j+1+"颗毒丸！");
         }
     }
 }
