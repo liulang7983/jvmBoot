@@ -12,6 +12,7 @@ public class Demo1 {
 
         ;
 
+        @Override
         public void run() {
             String threadName = Thread.currentThread().getName();
             System.out.println(threadName + " start.");
@@ -35,10 +36,12 @@ public class Demo1 {
             this.bt = bt;
         }
 
+        @Override
         public void run() {
             String threadName = Thread.currentThread().getName();
             System.out.println(threadName + " start.");
             try {
+                //等待bt执行完继续往下走
                 bt.join();
                 System.out.println(threadName + " end.");
             } catch (Exception e) {
@@ -50,13 +53,15 @@ public class Demo1 {
     public static class TestDemo {
         public static void main(String[] args) {
             String threadName = Thread.currentThread().getName();
-            System.out.println(threadName + " start.");
+            System.out.println(threadName + " start");
             BThread bt = new BThread();
             AThread at = new AThread(bt);
             try {
                 bt.start();
                 Thread.sleep(2000);
                 at.start();
+                //此处不等待执行则主线程会直接走到后面打印 main end!
+                //等待at执行完再继续往下走
                 at.join();
             } catch (Exception e) {
                 System.out.println("Exception from main");

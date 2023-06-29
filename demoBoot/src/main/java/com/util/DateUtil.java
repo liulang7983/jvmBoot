@@ -23,16 +23,10 @@ public class DateUtil {
             return value;
         }
         if (period.equals(1)) {
-            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-            String start = format.format(startTime);
-            String end = format.format(endTime);
             Long l = endTime.getTime() - startTime.getTime();
-            Double v = l.doubleValue();
-            Double v1 = v / (1000 * 3600 * 24);
-            value = ((Double) Math.ceil(v1)).intValue();
-            if (start.equals(end)) {
-                value++;
-            }
+            Long v1 = l / (1000 * 3600 * 24);
+            value = v1.intValue();
+            value++;
         } else if (period.equals(2)) {
             SimpleDateFormat format = new SimpleDateFormat("yyyyMM");
             String start = format.format(startTime);
