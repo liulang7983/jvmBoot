@@ -197,4 +197,22 @@ public class DateUtil {
         DateFormat format2 = new SimpleDateFormat(patten);
         return format2.format(date);
     }
+
+    public static Integer intervalDay(Date start,Date end){
+        Integer value = null;
+        SimpleDateFormat slf = new SimpleDateFormat("yyyy-MM-dd");
+        String startStr = slf.format(start);
+        String endStr = slf.format(end);
+        try {
+            Date startDate = slf.parse(startStr);
+            Date endDate = slf.parse(endStr);
+            Long l = endDate.getTime() - startDate.getTime();
+            Long v1 = l / (1000 * 3600 * 24);
+            value = v1.intValue();
+            value++;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
 }

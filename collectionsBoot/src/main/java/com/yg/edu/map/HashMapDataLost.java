@@ -32,11 +32,10 @@ public class HashMapDataLost {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("map.size:"+map.size());
         //输出
         for(int i=0;i<2000;i++){
             System.out.println("第："+i+"元素，值："+map.get(String.valueOf(i)));
         }
-
+        System.out.println("map.size:"+map.size());
     }
 }

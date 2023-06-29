@@ -37,7 +37,7 @@ public class CyclicBarrierRunner implements Runnable {
         System.out.println("全部到达屏障....1");
 
         Thread.sleep(5000);
-
+        System.out.println("暂停五秒后====================================");
         for (int i = 0; i < 10; i++) {
             new Thread(new CyclicBarrierRunner(cyclicBarrier, i)).start();
         }

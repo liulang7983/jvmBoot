@@ -1,8 +1,10 @@
 package com.yg.edu.list;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class CopyOnWriteArrayListRunner {
     //使用ArrayList会报java.util.ConcurrentModificationException

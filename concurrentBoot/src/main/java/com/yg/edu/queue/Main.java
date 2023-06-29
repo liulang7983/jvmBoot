@@ -25,11 +25,10 @@ public class Main {
         }
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer + mod)).start();
     }
 

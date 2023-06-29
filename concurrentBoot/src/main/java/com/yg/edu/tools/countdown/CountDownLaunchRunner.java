@@ -36,7 +36,6 @@ public class CountDownLaunchRunner {
                             sub++;
                         }
                     }
-
                 }
             }, String.valueOf(i)).start();
             Thread.sleep(200);
