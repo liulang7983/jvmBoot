@@ -5,13 +5,17 @@ spring:
     name: cloud-provide-payment
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
-    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#    driver-class-name: com.mysql.jdbc.Driver
+##    url: jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+##    username: root
+##    password: root
+#    url: jdbc:mysql://172.18.26.250:23308/jarvis_dev?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
 #    username: root
-#    password: root
-    url: jdbc:mysql://172.18.26.250:23308/jarvis_dev?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
-    username: root
-    password: focr123
+#    password: focr123
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@172.18.26.12:1521/helowin
+    username: jarvis_sit
+    password: Shhex1234
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.buba.springcloud.pojo

@@ -5,9 +5,29 @@
     <!--<select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">
         SELECT i.BUYER FROM t_ai_ias_invoice i LEFT JOIN T_AI_IAS_REMARK r on i.REMARK_ID=r.REMARK_ID where r.CRT_USER='lmm' and r.TENANT_ID='lm' and i.BUYER like '%金鸿%'
     </select>-->
+        <!--mysql写法-->
+<!--    <select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">-->
+<!--        SELECT distinct CASE if(isnull(#{buyer}),0,1) WHEN 0  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i
+            <where>
+            <if test="seller != null and  seller!=''">AND i.seller Like '%'|| #{seller}||'%'</if>
+            <if test="buyer != null and  buyer!=''">AND i.BUYER  Like '%'|| #{buyer}||'%'</if>
+        </where>-->
+<!--    </select>-->
+    <!--oracle写法，此时buyer ,jdbcType=VARCHAR必定要有jdbcType，否则会报错无效的列类型: 1111-->
+<!--    <select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">-->
+<!--        SELECT distinct CASE WHEN #{buyer ,jdbcType=VARCHAR} is null THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i-->
+<!--        <where>-->
+<!--            <if test="seller != null and  seller!=''">AND i.seller Like '%'|| #{seller}||'%'</if>-->
+<!--            <if test="buyer != null and  buyer!=''">AND i.BUYER  Like '%'|| #{buyer}||'%'</if>-->
+<!--        </where>-->
+<!--    </select>-->
 
     <select id="indistinctSelect" parameterType="com.model.StatisticsVo" resultType="java.lang.String">
-        SELECT distinct CASE if(isnull(#{buyer}),0,1) WHEN 0  THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i  where BUYER like '%致宇%'
+        SELECT distinct CASE nvl(#{buyer,jdbcType=VARCHAR},'^') WHEN '^' THEN i.seller ELSE i.BUYER END FROM t_ai_ias_invoice i
+        <where>
+            <if test="seller != null and  seller!=''">AND i.seller Like '%'|| #{seller}||'%'</if>
+            <if test="buyer != null and  buyer!=''">AND i.BUYER  Like '%'|| #{buyer}||'%'</if>
+        </where>
     </select>
 
 </mapper>

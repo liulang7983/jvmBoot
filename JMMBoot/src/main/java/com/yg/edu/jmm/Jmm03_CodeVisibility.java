@@ -12,15 +12,15 @@ public class Jmm03_CodeVisibility {
 
  //    此时线程是会卡住在线程A的while的,线程B修改了initFlag的值对他无感，线程A开启的时候读取到了false，此时不会感知到修改
 
-
-    private static  boolean initFlag = false;
+    //此时有无volatile完全不一样
+    private  static  boolean initFlag = false;
 
     private  static int counter = 0;
 
     public static void refresh(){
-        log.info("refresh data.......");
+        System.out.println("refresh data.......");
         initFlag = true;
-        log.info("refresh data success.......");
+        System.out.println("refresh data success.......");
     }
 
     public static void main(String[] args){
@@ -30,7 +30,7 @@ public class Jmm03_CodeVisibility {
                 //System.out.println("runing");
                 counter++;
             }
-            log.info("线程：" + Thread.currentThread().getName()
+            System.out.println("线程：" + Thread.currentThread().getName()
                     + "当前线程嗅探到initFlag的状态的改变");
         },"threadA");
         threadA.start();

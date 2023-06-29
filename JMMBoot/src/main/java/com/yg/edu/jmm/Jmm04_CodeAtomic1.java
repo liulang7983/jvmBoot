@@ -6,7 +6,7 @@ public class Jmm04_CodeAtomic1 {
      此时的值一定是10000，虽然volatile不保证原子性，但是synchronized和lock原子性
      */
 
-    private volatile static int counter = 0;
+    private  static int counter = 0;
     static Object object = new Object();
 
     public static void main(String[] args) {
