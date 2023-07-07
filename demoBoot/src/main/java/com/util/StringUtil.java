@@ -31,4 +31,12 @@ public class StringUtil {
         return str != null && str.matches("-?\\d+(\\.\\d+)?");
     }
 
+    //去掉特殊字符
+    public static String removeChar(String appendixName, String[] char_regix) {
+        for (String s : char_regix) {
+            appendixName = appendixName.replace(s, "");
+        }
+        return appendixName;
+    }
+
 }

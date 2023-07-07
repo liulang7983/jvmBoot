@@ -1,11 +1,9 @@
 package com.yg.edu;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import lombok.extern.slf4j.Slf4j;
 import org.openjdk.jol.info.ClassLayout;
 
 
-@Slf4j
+
 public class T0_BasicLock {
     public static void main(String[] args) {
         try {
@@ -14,11 +12,11 @@ public class T0_BasicLock {
             e.printStackTrace();
         }
         Object o = new Object();
-        log.info(ClassLayout.parseInstance(o).toPrintable());
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
 
         new Thread(()->{
             synchronized (o){
-                log.info(ClassLayout.parseInstance(o).toPrintable());
+                System.out.println(ClassLayout.parseInstance(o).toPrintable());
             }
         }).start();
 
@@ -28,10 +26,10 @@ public class T0_BasicLock {
             e.printStackTrace();
         }
 
-        log.info(ClassLayout.parseInstance(o).toPrintable());
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
         new Thread(()->{
             synchronized (o){
-                log.info(ClassLayout.parseInstance(o).toPrintable());
+                System.out.println(ClassLayout.parseInstance(o).toPrintable());
             }
         }).start();
     }
