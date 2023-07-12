@@ -5,7 +5,6 @@ import co.paralleluniverse.fibers.SuspendExecution;
 import co.paralleluniverse.fibers.Suspendable;
 import co.paralleluniverse.strands.Strand;
 import co.paralleluniverse.strands.SuspendableRunnable;
-import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
@@ -23,7 +22,7 @@ import java.util.stream.Stream;
  * @description: 纤程
  * vmargs : -javaagent:C:\Users\yangguo\.m2\repository\co\paralleluniverse\quasar-core\0.7.6\quasar-core-0.7.6.jar
  **/
-@Slf4j
+
 public class QuasarFiberRunner {
 
     @Suspendable
