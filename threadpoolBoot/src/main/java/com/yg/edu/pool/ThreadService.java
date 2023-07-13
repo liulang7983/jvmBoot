@@ -39,6 +39,11 @@ public class ThreadService implements Runnable{
 
     @Override
     public void run() {
+        try {
+            Thread.sleep(20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("我的名字:"+name+",我的序号："+number);
     }
 }
