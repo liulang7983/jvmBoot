@@ -13,5 +13,7 @@ public class Demo1 {
         System.out.println(StringUtil.isNumeric2("2.22X"));
         String str="sss.s";
         System.out.println(str.substring(str.lastIndexOf(".")+1));
+        String ss="d://sdfd.ofd";
+        System.out.println(ss.substring(0,ss.lastIndexOf(".")+1)+"pdf");
     }
 }
