@@ -35,7 +35,7 @@ public class DequeTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(take);
+                    System.out.println("现成2获得："+take);
                 }
             }
         });
