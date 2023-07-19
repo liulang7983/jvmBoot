@@ -15,5 +15,7 @@ public class Demo1 {
         System.out.println(str.substring(str.lastIndexOf(".")+1));
         String ss="d://sdfd.ofd";
         System.out.println(ss.substring(0,ss.lastIndexOf(".")+1)+"pdf");
+        String sss="2,3,4,5,";
+        System.out.println(sss.substring(0,sss.lastIndexOf(",")));
     }
 }

@@ -143,6 +143,15 @@
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
                 </exclusion>
+                <!--删掉ofd转pdf失败，不删掉sheet多个读取失败-->
+               <!--  <exclusion>
+                     <groupId>org.dom4j</groupId>
+                     <artifactId>dom4j</artifactId>
+                 </exclusion>-->
+                <exclusion>
+                    <artifactId>pull-parser</artifactId>
+                    <groupId>pull-parser</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <!-- OFD转pdf这几个必须要，不然没有文字-->

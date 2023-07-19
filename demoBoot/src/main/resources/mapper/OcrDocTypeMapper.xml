@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OcrDocTypeMapper">
+    <resultMap id="BaseResultMap" type="com.bean.OcrDocType">
+        <id column="TYPE_ID" jdbcType="VARCHAR" property="typeId"/>
+        <result column="DOC_TYPE_NAME" jdbcType="VARCHAR" property="docTypeName"/>
+        <result column="OCR_ENGINE_TYPE" jdbcType="VARCHAR" property="ocrEngineType"/>
+        <result column="PARENT_TYPE_ID" jdbcType="VARCHAR" property="parentTypeId"/>
+        <result column="SORT_NO" jdbcType="INTEGER" property="sortNo"/>
+        <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo"/>
+        <result column="TABLE_TITLE" jdbcType="VARCHAR" property="tableTitle"/>
+        <result column="OCR_ORIGIN_TYPE" jdbcType="VARCHAR" property="ocrOriginType"/>
+    </resultMap>
+
+    <sql id="Base_Column">
+        TYPE_ID, DOC_TYPE_NAME, TABLE_TITLE, OCR_ENGINE_TYPE, PARENT_TYPE_ID,SORT_NO,SEQ_NO,OCR_ORIGIN_TYPE
+    </sql>
+    <!--实验证明此时nvl(PARENT_TYPE_ID,'') 哪怕替换了最后拿到的值还是null，oracle特有-->
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT TYPE_ID, DOC_TYPE_NAME, TABLE_TITLE, OCR_ENGINE_TYPE, nvl(PARENT_TYPE_ID,'') PARENT_TYPE_ID,SORT_NO,SEQ_NO,OCR_ORIGIN_TYPE
+        FROM T_AI_OCR_DOCTYPE
+    </select>
+
+</mapper>

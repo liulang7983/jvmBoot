@@ -31,4 +31,10 @@ public class ExcelController {
     public void downloadExcel(HttpServletResponse response){
          excelService.downloadExcel(response);
     }
+
+    //解析有多个sheet的execl
+    @RequestMapping("/importExecl")
+    public String importExecl(@RequestParam("file") MultipartFile file) throws IOException {
+        return excelService.importExecl(file);
+    }
 }

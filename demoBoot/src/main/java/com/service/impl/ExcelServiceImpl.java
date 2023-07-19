@@ -1,8 +1,6 @@
 package com.service.impl;
 
 import com.alibaba.excel.EasyExcelFactory;
-import com.bean.ApiResult;
-import com.enumUtil.ERetCode;
 import com.excel.ExcelDataListener;
 import com.service.ExcelService;
 import org.apache.poi.xssf.usermodel.*;
@@ -10,10 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +29,7 @@ public class ExcelServiceImpl implements ExcelService {
         String substring = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
         System.out.println();
         int index = originalFilename.lastIndexOf(".");
-        if (index==-1||!("xlsx".equalsIgnoreCase(substring)||"xls".equalsIgnoreCase(substring))){
+        if (index == -1 || !("xlsx".equalsIgnoreCase(substring) || "xls".equalsIgnoreCase(substring))) {
             return "文件格式非execl格式";
         }
         /*
@@ -48,7 +45,7 @@ public class ExcelServiceImpl implements ExcelService {
         Map<Integer, String> stringMap = headList.get(0);
         int size1 = stringMap.size();
         Collection<String> values = stringMap.values();
-        if (!stringMap.get(0).contains("发票代码")){
+        if (!stringMap.get(0).contains("发票代码")) {
             return "第一列非发票代码";
         }
 
@@ -70,7 +67,7 @@ public class ExcelServiceImpl implements ExcelService {
     public void downloadExcel(HttpServletResponse response) {
         XSSFWorkbook wb = new XSSFWorkbook();
         XSSFSheet sheet = null;
-            sheet = wb.createSheet("发票维度");
+        sheet = wb.createSheet("发票维度");
         XSSFRow row = sheet.createRow((short) 0);
         XSSFCell cell = row.createCell((short) 0);
         String s = "st\r\n" + "nn";
@@ -94,5 +91,52 @@ public class ExcelServiceImpl implements ExcelService {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public String importExecl(MultipartFile file) throws IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook(file.getInputStream());
+        for (int j = 0; j < workbook.getNumberOfSheets(); j++) {
+            XSSFSheet xssfSheet = workbook.getSheetAt(j);
+            String sheetName = xssfSheet.getSheetName();
+            System.out.println("名称:" + sheetName);
+            String substring = sheetName.substring(0, sheetName.lastIndexOf("-"));
+            System.out.println(substring);
+            System.out.println(sheetName.substring(sheetName.indexOf("-") + 1));
+            if (xssfSheet == null) {
+                continue;
+            }
+            for (int k = 0; k <= xssfSheet.getLastRowNum(); k++) {
+                List<String> rowDataList = new ArrayList<>();
+                XSSFRow aRow = xssfSheet.getRow(k);
+                if (aRow == null) {
+                    continue;
+                }
+                System.out.println("行数:" + k);
+                System.out.println(xssfSheet.getRow(k).getLastCellNum());
+                if (k == 1) {
+                    for (int l = 0; l < xssfSheet.getRow(k).getLastCellNum(); l++) {
+                        XSSFCell cell = xssfSheet.getRow(k).getCell(l);
+                        if (cell != null) {
+                            String s = xssfSheet.getRow(k).getCell(l).toString();
+                            System.out.println(s);
+                        }
+                    }
+                }
+                if (k > 3) {
+                    for (int l = 0; l < xssfSheet.getRow(k).getLastCellNum(); l++) {
+                        XSSFCell cell = xssfSheet.getRow(k).getCell(l);
+                        if (cell != null) {
+                            String s = xssfSheet.getRow(k).getCell(l).toString();
+                            System.out.println(s);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        return null;
     }
 }

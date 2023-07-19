@@ -1,12 +1,7 @@
 package com.util;
 
-import com.alibaba.fastjson.JSONObject;
-import com.hex.ai.ias.constant.IasConstant;
-import com.hex.ai.ias.constant.IasTypeEnum;
 import com.thoughtworks.xstream.core.BaseException;
-import net.coobird.thumbnailator.Thumbnails;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.slf4j.Logger;
@@ -104,23 +99,7 @@ public class IasFileUtils {
         return fullFmsFilePath.substring(0, fullFmsFilePath.lastIndexOf(46));
     }
 
-    /**
-     * 根据全路径获取导出的路径
-     *
-     * @param fullFmsFilePath 带文件名的全路径
-     * @return
-     */
-    public static String getExportPath(String fullFmsFilePath) {
-        File file = new File(fullFmsFilePath);
-        String parentPath = file.getParent();
-        String exportPath = parentPath + File.separator + IasTypeEnum.codeOf("00000019").exportFolder();
-        File file1 = new File(exportPath);
-        if (!file1.exists()) {
-            //创建文件目录
-            file1.mkdirs();
-        }
-        return exportPath;
-    }
+
 
     public void responseImg(String fullFileName, String fileName, HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -154,88 +133,6 @@ public class IasFileUtils {
     }
 
 
-    /**
-     * 根据定位将混排图片中的发票单独切出来
-     *
-     * @param imgPath            混排图片的带文件名全路径
-     * @param exportImgPath      带文件名的导出全路径
-     * @param locationJsonObject 定位的json
-     */
-    public static void getImgByItemLocation(String imgPath, String exportImgPath, JSONObject locationJsonObject) {
-
-        File file = new File(imgPath);
-        //获取图片的像素大小
-        BufferedImage bi = null;
-        try {
-            bi = ImageIO.read(file);
-        } catch (IOException e) {
-            logger.error("读取图片的像素大小异常:", e);
-        }
-        int imageWidth = 0;
-        int imageHeight = 0;
-        if (bi != null) {
-            imageWidth = bi.getWidth();
-            imageHeight = bi.getHeight();
-        }
-        logger.info("宽：{}像素-----高：{}像素", imageWidth, imageHeight);
-
-        int x = locationJsonObject.getInteger(IasConstant.X);
-        Integer y = locationJsonObject.getInteger(IasConstant.Y);
-        Integer width = locationJsonObject.getInteger(IasConstant.WIDTH);
-        Integer height = locationJsonObject.getInteger(IasConstant.HEIGHT);
-        if (x < 0) {
-            x = 0;
-        } else if (x + width > imageWidth) {
-            x = imageWidth - width;
-        }
-        if (y < 0) {
-            y = 0;
-        } else if (y + height > imageHeight) {
-            y = imageHeight - height;
-        }
-        logger.info("x={},y={}", x, y);
-
-        if (!isExist(exportImgPath)) {
-            File dir = new File(exportImgPath);
-            //创建文件目录
-            dir.getParentFile().mkdirs();
-        }
-
-        try {
-            Thumbnails.of(file).sourceRegion(x, y, width, height).scale(1.0).toFile(exportImgPath);
-            logger.info("切割图片完毕");
-        } catch (Exception e) {
-            logger.error("切割图片时出错", e);
-        }
-
-    }
-
-
-    /**
-     * 将base64编码的图片转换为图片存储
-     * @param base 图片的base64编码
-     * @param exportImgPath 图片的导出路径
-     */
-    public static void changeBaseToImage(String base, String exportImgPath) throws BaseException {
-        if (StringUtils.isEmpty(base)) {
-            throw new BaseException("未获取到引擎返回的base64图片编码");
-        }
-        //创建文件目录
-        if (!isExist(exportImgPath)) {
-            File dir = new File(exportImgPath);
-            //创建文件目录
-            dir.getParentFile().mkdirs();
-        }
-        byte[] bytes = Base64.getDecoder().decode(base);
-        File file = new File(exportImgPath);
-        try (FileOutputStream fos = new FileOutputStream(file);
-             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
-            bos.write(bytes);
-        } catch (IOException e) {
-            logger.error("base64ToImage 错误 ", e);
-            throw new BaseException("base64转图片出现错误", e);
-        }
-    }
 
     private static Color avgOne(int red, int green, int blue) {
         int avg = Math.round((red * 1f + green * 0f + blue * 0f));
@@ -247,7 +144,7 @@ public class IasFileUtils {
      * @param base64 图片base64
      * @throws BaseException
      */
-    public static String imageGrayscaleByBase(String base64)  throws BaseException{
+    public static String imageGrayscaleByBase(String base64){
         try {
             Base64.Decoder decoder = Base64.getDecoder();
             byte[] bytes = decoder.decode(base64);
@@ -281,8 +178,8 @@ public class IasFileUtils {
             return base64Img;
         }catch (Exception e){
             logger.error("图片灰度化转换错误 ", e);
-            throw new BaseException("图片灰度化转换错误", e);
         }
+        return null;
     }
 
     /**
@@ -290,7 +187,7 @@ public class IasFileUtils {
      * @param filePath 图片路径
      * @throws BaseException
      */
-    public static String imageGrayscaleByPath(String filePath)  throws BaseException{
+    public static String imageGrayscaleByPath(String filePath){
         try {
             BufferedImage img = ImageIO.read(new FileInputStream(filePath));
 
@@ -321,8 +218,8 @@ public class IasFileUtils {
             return base64Img;
         }catch (Exception e){
             logger.error("图片灰度化转换错误 ", e);
-            throw new BaseException("图片灰度化转换错误", e);
         }
+        return null;
     }
 
 

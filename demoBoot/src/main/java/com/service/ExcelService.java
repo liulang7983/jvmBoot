@@ -14,4 +14,6 @@ public interface ExcelService {
     String upload( MultipartFile file) throws IOException;
 
     void downloadExcel(HttpServletResponse response);
+
+    String importExecl( MultipartFile file) throws IOException;
 }
