@@ -9,6 +9,15 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/cloud-api-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-consumer-feign-hystrix-order/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-consumer-feign-order/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-consumer-order/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-consumerconsul-order/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-provide-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-provider-hystrix-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-providerconsul-payment/pom.xml" />
         <option value="$PROJECT_DIR$/jvmBoot1/pom.xml" />
       </set>
     </option>
