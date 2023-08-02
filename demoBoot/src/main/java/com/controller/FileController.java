@@ -1,10 +1,14 @@
 package com.controller;
 
 import com.bean.CheckInvoice;
+import com.bean.User;
 import com.util.FileUtil;
+import org.springframework.boot.system.ApplicationHome;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -27,5 +31,19 @@ public class FileController {
     public Map getChange(){
         Map change = FileUtil.getChange();
         return change;
+    }
+    @RequestMapping("/getUser")
+    public String getUser(@RequestBody User user){
+        Integer id = user.getId();
+        System.out.println(id);
+        return "成功";
+    }
+
+    @RequestMapping("/getUser1")
+    public String getUser1(Integer id,String name){
+        String absolutePath = new ApplicationHome(getClass()).getSource().getParentFile().getAbsolutePath();
+        System.out.println("包所在目录:"+absolutePath);
+        System.out.println(id);
+        return "成功";
     }
 }

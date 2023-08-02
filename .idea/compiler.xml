@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="atomicBoot" />
-        <module name="threadpoolBoot" />
         <module name="syncronizedBoot" />
         <module name="demoBoot" />
         <module name="JMMBoot" />
+        <module name="threadpoolBoot" />
         <module name="concurrentBoot" />
         <module name="collectionsBoot" />
         <module name="jdkBoot" />
