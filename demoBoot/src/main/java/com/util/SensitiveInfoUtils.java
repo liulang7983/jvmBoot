@@ -30,85 +30,36 @@ public class SensitiveInfoUtils {
      * @param str 待处理字符串
      * @return 处理后的字符串
      */
-    public static String desensitize(String str) {
+    public static String desensitize(String str,String pattern) {
         if (str == null || str.length() == 0) {
             return "";
         }
         int length = str.length();
-        // 替换手机号码
-        Pattern phonePattern = Pattern.compile(PHONE_REGEX);
-        Matcher phoneMatcher = phonePattern.matcher(str);
-        StringBuffer sb = new StringBuffer();
-        while (phoneMatcher.find() && length == 11) {
-            System.out.println("phoneMatcher");
-            phoneMatcher.appendReplacement(sb, "$1****$2");
-            phoneMatcher.appendTail(sb);
-            return sb.toString();
-        }
-        // 替换发票号码
-        Pattern invoicePattern = Pattern.compile(INVOICE_REGEX);
-        Matcher invoiceMatcher = invoicePattern.matcher(str);
-        sb.setLength(0); // 清空 StringBuffer，用于存储结果
-        while (invoiceMatcher.find() && length >= 8 && length <= 12) {
-            System.out.println("invoiceMatcher");
-            invoiceMatcher.appendReplacement(sb, "$1****");
-            invoiceMatcher.appendTail(sb);
-            return sb.toString();
-        }
-        // 替换身份证号码
-        Pattern idCardPattern = Pattern.compile(ID_CARD_REGEX);
-        Matcher idCardMatcher = idCardPattern.matcher(str);
-        sb.setLength(0); // 清空 StringBuffer，用于存储结果
-        while (idCardMatcher.find() && length == 18) {
-            System.out.println("idCardMatcher");
-            idCardMatcher.appendReplacement(sb, "$1**********$2");
-            idCardMatcher.appendTail(sb);
-            return sb.toString();
-        }
-
-        // 替换全电
-        Pattern qdPattern = Pattern.compile(QD_REGEX);
-        Matcher qdMatcher = qdPattern.matcher(str);
-        sb.setLength(0); // 清空 StringBuffer，用于存储结果
-        while (qdMatcher.find() && length == 20) {
-            System.out.println("qdMatcher");
-            qdMatcher.appendReplacement(sb, "$1************$2");
-            qdMatcher.appendTail(sb);
-            return sb.toString();
-        }
-        // 替换全文字
-        Pattern chinesePattern = Pattern.compile(CHINESE_REGEX);
-        Matcher chineseMatcher = chinesePattern.matcher(str);
-        sb.setLength(0); // 清空 StringBuffer，用于存储结果
-        while (chineseMatcher.find()) {
-            if (length <= 4) {
-                return nameDesensitization(str);
+        String[] split = pattern.split(",");
+        if (split.length==1){
+            Integer integer = Integer.valueOf(split[0]);
+            if (integer>0){
+                str = dataDesensitization(0, integer, str);
+                return str;
+            }else {
+                str = dataDesensitization(length+integer, length, str);
+                return str;
             }
-            System.out.println("chineseMatcher");
+        }
+        if (split.length==2){
+            Integer start = Integer.valueOf(split[0]);
+            Integer end = Integer.valueOf(split[1]);
+            if (end>0){
+                str = dataDesensitization(start, end, str);
+                return str;
+            }else {
+                str = dataDesensitization(start, length+end, str);
+                return str;
+            }
 
-            chineseMatcher.appendReplacement(sb, "$1************$2");
-            chineseMatcher.appendTail(sb);
-            return sb.toString();
         }
         return str;
     }
-
-    public static String nameDesensitization(String name) {
-        if (!StringUtils.isBlank(name)) {
-            return name;
-        }
-        char[] sArr = name.toCharArray();
-        if (sArr.length == 2) {
-            return sArr[0] + "**";
-        } else if (sArr.length > 2) {
-            for (int i = 1; i < sArr.length; i++) {
-                sArr[i] = '*';
-            }
-            return new String(sArr);
-        }
-        return name;
-    }
-
     public static String dataDesensitization(int start, int end, String value) {
         char[] chars;
         int i;
