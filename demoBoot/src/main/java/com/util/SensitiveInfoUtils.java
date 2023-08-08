@@ -39,9 +39,16 @@ public class SensitiveInfoUtils {
         if (split.length==1){
             Integer integer = Integer.valueOf(split[0]);
             if (integer>0){
+                if (integer>=length){
+                    integer=length-1;
+                }
                 str = dataDesensitization(0, integer, str);
                 return str;
             }else {
+                int abs = Math.abs(integer);
+                if (abs>=length){
+                    integer=1-length;
+                }
                 str = dataDesensitization(length+integer, length, str);
                 return str;
             }
@@ -50,13 +57,47 @@ public class SensitiveInfoUtils {
             Integer start = Integer.valueOf(split[0]);
             Integer end = Integer.valueOf(split[1]);
             if (end>0){
+                if (start>=length){
+                    str = dataDesensitization(0, length-1, str);
+                    return str;
+                }
+                if (end>length){
+                    end=length-1;
+                    if (start>=end){
+                        start=end-1;
+                    }
+                }
                 str = dataDesensitization(start, end, str);
                 return str;
             }else {
-                str = dataDesensitization(start, length+end, str);
-                return str;
+                if (start>=length){
+                    str = dataDesensitization(0, length-1, str);
+                    return str;
+                }else {
+                    int abs = Math.abs(end);
+                    if (abs>=length){
+                        if (length-1>=start){
+                            start=0;
+                        }
+                        str = dataDesensitization(start, length-1, str);
+                        return str;
+                    }else {
+                        int i = start + abs - length;
+                        if (i>=0){
+                            if (start>=length+i-abs){
+                                str = dataDesensitization(0, start, str);
+                                return str;
+                            }else {
+                                str = dataDesensitization(start, length+i-abs, str);
+                                return str;
+                            }
+                        }else {
+                            str = dataDesensitization(start, length+end, str);
+                            return str;
+                        }
+                    }
+                }
             }
-
         }
         return str;
     }

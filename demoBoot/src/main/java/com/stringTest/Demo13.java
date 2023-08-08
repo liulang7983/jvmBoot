@@ -14,10 +14,8 @@ public class Demo13 {
     private static final String ID_CARD_REGEX = "(\\d{4})\\d{10}(\\w{4})";
 
     public static void main(String[] args) {
-        String str="我是张三李四王五赵六田七我是张三李四王五赵六田七我是张三李四王五赵六田七我是张三李四王五赵六田七";
-        System.out.println(SensitiveInfoUtils.desensitize(str,"5"));
-        System.out.println(SensitiveInfoUtils.desensitize(str,"-5"));
-        System.out.println(SensitiveInfoUtils.desensitize(str,"3,5"));
-        System.out.println(SensitiveInfoUtils.desensitize(str,"3,-5"));
+        String str="我是雷锋ssss";
+        System.out.println(SensitiveInfoUtils.desensitize(str,"4,-4"));
+
     }
 }

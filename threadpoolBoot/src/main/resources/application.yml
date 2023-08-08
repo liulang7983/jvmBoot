@@ -1,0 +1,3 @@
+threadPool:
+  corePoolSize: 4
+  maximumPoolSize: 8
