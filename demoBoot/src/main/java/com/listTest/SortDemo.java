@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 public class SortDemo {
     public static void main(String[] args) {
         List<User> list = new ArrayList<>();
-        list.add(new User(1, "lm1", "lm11"));
-        list.add(new User(5, "lm2", "lm22"));
-        list.add(new User(6, "lm3", "lm33"));
-        list.add(new User(7, "lm4", "lm44"));
-        list.add(new User(2, "lm5", null));
-        list.add(new User(6, "lm6", "lm66"));
+        list.add(new User(1L, "lm1", "lm11"));
+        list.add(new User(5L, "lm2", "lm22"));
+        list.add(new User(6L, "lm3", "lm33"));
+        list.add(new User(7L, "lm4", "lm44"));
+        list.add(new User(2L, "lm5", null));
+        list.add(new User(6L, "lm6", "lm66"));
         //升序
         List<User> collect = list.stream().sorted(Comparator.comparing(User::getId)).collect(Collectors.toList());
         System.out.println(collect);

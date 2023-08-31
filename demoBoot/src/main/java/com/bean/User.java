@@ -5,15 +5,15 @@ package com.bean;
  * @date 2023/5/18 10:48
  */
 public class User {
-    private Integer id;
+    private Long id;
     private String name;
     private String message;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -36,7 +36,7 @@ public class User {
 
     }
 
-    public User(Integer id, String name, String message) {
+    public User(Long id, String name, String message) {
         this.id = id;
         this.name = name;
         this.message = message;

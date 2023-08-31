@@ -11,8 +11,8 @@ import java.lang.reflect.Field;
  */
 public class FieldDemo1 {
     public static void main(String[] args) {
-        User user = new User(1, "张三", "是憨憨");
-        User user1 = new User(1, "李四", "是憨憨");
+        User user = new User(1L, "张三", "是憨憨");
+        User user1 = new User(1L, "李四", "是憨憨");
         Field[] declaredFields = User.class.getDeclaredFields();
         FieldUtil.fieldCompare(declaredFields,user,user1);
     }

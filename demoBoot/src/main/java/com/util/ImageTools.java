@@ -1,6 +1,8 @@
 package com.util;
 
+import com.enumUtil.EnumOcrFileType;
 import net.coobird.thumbnailator.Thumbnails;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.slf4j.Logger;
@@ -155,6 +157,58 @@ public class ImageTools {
 
         Collections.sort(rangeList);
         return rangeList;
+    }
+
+    /**
+     * 压缩文件，按目的压缩
+     * @param imageFile:文件
+     * @return
+     */
+    public static File resizeImageSize(File imageFile) throws IOException {
+        if (OcrUtil.isPdf(imageFile.getAbsolutePath())){
+            return imageFile;
+        }
+        float size = ((float) FileUtils.sizeOf(imageFile))/ 1024 / 1024;
+        float quality = 0.8f;
+        if (size < 4){
+            //小于4m，无需压缩
+            return imageFile;
+        }
+        String strExtName = StringUtils.isNotBlank(imageFile.getName()) ? imageFile.getName().substring(imageFile.getName().lastIndexOf('.') + 1) : "";
+        //png图片先转成jpg再压缩
+        if (strExtName.equalsIgnoreCase(EnumOcrFileType.OCR_FILE_TYPE_PNG.getFileType())){
+            //新图片路径
+            String newFileSrc = imageFile.getPath().substring(0,imageFile.getPath().lastIndexOf('.') + 1)+EnumOcrFileType.OCR_FILE_TYPE_JPG.getFileType();
+            Thumbnails.of(imageFile).scale(1f).toFile(newFileSrc);
+            imageFile = new File(newFileSrc);
+            size = ((float) FileUtils.sizeOf(imageFile))/ 1024 / 1024;
+            if (size < 4){
+                //小于4m，无需压缩
+                return imageFile;
+            }
+        }
+        if (size >= 8){
+            quality = 5/size;
+        }
+        return resizeImage1(imageFile,1f,quality);
+    }
+
+    /**
+     * 压缩图片
+     * @param imageFile:图片文件，支持JPG，PNG,BMP
+     * @param scale:绽放比例
+     * @param quality:质量
+     * @return
+     */
+    public static File resizeImage1(File imageFile,float scale,float quality){
+        try
+        {
+            Thumbnails.of(imageFile).scale(scale).outputQuality(quality).toFile(imageFile);
+            return imageFile;
+        }catch (IOException e) {
+            logger.error("resizeImage exception["+e.getMessage()+"]");
+        }
+        return imageFile;
     }
 }
 

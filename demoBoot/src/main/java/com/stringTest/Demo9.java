@@ -9,7 +9,7 @@ import com.bean.User;
  */
 public class Demo9 {
     public static void main(String[] args) {
-        User user = new User(1, "张三", "是憨憨");
+        User user = new User(1L, "张三", "是憨憨");
         JSONObject jsonObject = JSONObject.parseObject(user.toString());
     }
 }

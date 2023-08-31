@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * @author ming.li
@@ -34,7 +40,7 @@ public class FileController {
     }
     @RequestMapping("/getUser")
     public String getUser(@RequestBody User user){
-        Integer id = user.getId();
+        Long id = user.getId();
         System.out.println(id);
         return "成功";
     }
@@ -44,6 +50,20 @@ public class FileController {
         String absolutePath = new ApplicationHome(getClass()).getSource().getParentFile().getAbsolutePath();
         System.out.println("包所在目录:"+absolutePath);
         System.out.println(id);
+        return "成功";
+    }
+
+    @RequestMapping("/ofdToPdf")
+    public String ofdToPdf(){
+        URL resource = FileController.class.getClassLoader().getResource("file");
+        if (resource!=null){
+            String path = resource.getPath();
+            File[] files = new File(path).listFiles();
+            for (File file:files){
+                System.out.println(file.getName());
+            }
+
+        }
         return "成功";
     }
 }

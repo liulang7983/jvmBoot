@@ -9,10 +9,14 @@
     <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumerBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumerBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdkBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdkBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/producerBoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/producerBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/java" charset="UTF-8" />
