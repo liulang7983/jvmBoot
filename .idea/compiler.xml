@@ -16,6 +16,7 @@
         <module name="threadpoolBoot" />
         <module name="concurrentBoot" />
         <module name="collectionsBoot" />
+        <module name="execlBoot" />
         <module name="jdkBoot" />
       </profile>
     </annotationProcessing>
