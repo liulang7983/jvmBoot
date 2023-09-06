@@ -5,6 +5,9 @@ import lm.com.bean.User;
 import lm.com.service.ExeclService;
 import lm.com.utils.FileUtils;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -54,6 +57,7 @@ public class ExeclServiceImpl implements ExeclService {
         CellStyle cellStyle = workbook.createCellStyle();
         // 设置自动换行
         cellStyle.setWrapText(true);
+        //设置行高，防止自动换行导致变宽
         sheet.setDefaultRowHeight((short)300);
 
         List<User> list=new ArrayList<>();
@@ -68,14 +72,12 @@ public class ExeclServiceImpl implements ExeclService {
                 index = 0;
                 for (Map.Entry<String, Object> entrie : entries) {
                     String next = entrie.getKey();
-                    System.out.println("打印next："+next);
                     String string = execl1.getString(next);
                     for (Field field:declaredFields){
                         String name = field.getName();
                         if (name.equals(string)){
                             field.setAccessible(true);
                             String s = field.get(user).toString();
-                            System.out.println("查到的值:"+s);
                             XSSFCell cell = row.createCell(index);
                             cell.setCellStyle(cellStyle);
                             cell.setCellValue(s);
@@ -92,5 +94,17 @@ public class ExeclServiceImpl implements ExeclService {
         } catch (IOException | IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void execl2(HttpServletResponse res) {
+        //内置模板
+        Workbook workbook = FileUtils.getFilesFromResources("static_template.xlsx");
+        //获取模版的这个sheet页
+        Sheet sheet = workbook.getSheet("任务统计表");
+        //获取行，而不是创建
+        Row row = sheet.getRow(1);
+        //设置行高
+        row.setHeight((short)250);
     }
 }

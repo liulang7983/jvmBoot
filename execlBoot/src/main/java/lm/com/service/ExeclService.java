@@ -9,4 +9,6 @@ import java.io.IOException;
  */
 public interface ExeclService {
     void execl1(HttpServletResponse res);
+    void execl2(HttpServletResponse res);
+
 }

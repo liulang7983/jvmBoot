@@ -3,6 +3,11 @@ package lm.com.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,5 +55,25 @@ public class FileUtils {
         } catch (IOException e) {
         }
         return sb.toString();
+    }
+
+    /**
+     * 获取resources下files下的文件
+     *
+     * @param fileName:资源文件名
+     * @return
+     */
+    public static Workbook getFilesFromResources(String fileName) {
+        String fileType = getFileExt(fileName);
+        Workbook wb = null;
+        try (InputStream in = new ClassPathResource("files/" + fileName).getInputStream()) {
+            wb = "xlsx".equalsIgnoreCase(fileType) ? new XSSFWorkbook(in) : new HSSFWorkbook(new POIFSFileSystem(in));
+        } catch (Exception e) {
+        }
+        return wb;
+    }
+
+    public static String getFileExt(String fileName) {
+        return fileName != null && fileName.indexOf('.') > -1 ? fileName.substring(fileName.lastIndexOf('.') + 1) : "";
     }
 }
