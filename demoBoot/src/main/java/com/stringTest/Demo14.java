@@ -8,5 +8,6 @@ public class Demo14 {
     public static void main(String[] args) {
         String str="我是";
         System.out.println(str.length());
+        System.out.println(String.format("%s|%s", "张三", "李四"));
     }
 }
