@@ -14,6 +14,7 @@ public class LogHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("========preHandle==========:"+request.getClass());
+        System.out.println("获取用户:"+request.getHeader("userId"));
         return true;
     }
 
