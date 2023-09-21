@@ -9,5 +9,8 @@ public class Demo2 {
         String s="ss,ss1,ss2,ss3";
         String[] split = s.split(",");
         System.out.println(split.length);
+
+        String s1="SS";
+        System.out.println(s1.split(",").length);
     }
 }

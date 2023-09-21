@@ -1,4 +1,4 @@
-package lm.com.test;
+package lm.com.test1;
 
 /**
  * @author ming.li
