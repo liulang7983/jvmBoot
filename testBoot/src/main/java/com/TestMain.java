@@ -4,6 +4,7 @@ import com.bean.*;
 import com.config.MyEnable;
 import com.properties.InvoiceProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Import;
 @Import({User.class})
 @MyEnable
 public class TestMain {
+
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(TestMain.class, args);
         System.out.println(context.getBean(User.class));
