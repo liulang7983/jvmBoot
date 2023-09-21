@@ -18,6 +18,7 @@
         <module>demoBoot</module>
         <module>jdkBoot</module>
         <module>execlBoot</module>
+        <module>testBoot</module>
     </modules>
 
     <properties>
