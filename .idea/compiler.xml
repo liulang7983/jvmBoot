@@ -7,8 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="producerBoot" />
-        <module name="consumerBoot" />
         <module name="atomicBoot" />
         <module name="syncronizedBoot" />
         <module name="demoBoot" />
@@ -30,7 +28,9 @@
       <module name="cloud-provide-payment" target="1.8" />
       <module name="cloud-provider-hystrix-payment" target="1.8" />
       <module name="cloud-providerconsul-payment" target="1.8" />
+      <module name="consumerBoot" target="8" />
       <module name="jvmBoot1" target="8" />
+      <module name="producerBoot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

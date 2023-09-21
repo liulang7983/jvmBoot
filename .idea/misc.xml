@@ -18,7 +18,9 @@
         <option value="$PROJECT_DIR$/cloud-provide-payment/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-provider-hystrix-payment/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-providerconsul-payment/pom.xml" />
+        <option value="$PROJECT_DIR$/consumerBoot/pom.xml" />
         <option value="$PROJECT_DIR$/jvmBoot1/pom.xml" />
+        <option value="$PROJECT_DIR$/producerBoot/pom.xml" />
       </set>
     </option>
   </component>

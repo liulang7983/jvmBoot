@@ -17,8 +17,6 @@
         <module>threadpoolBoot</module>
         <module>demoBoot</module>
         <module>jdkBoot</module>
-        <module>consumerBoot</module>
-        <module>producerBoot</module>
         <module>execlBoot</module>
     </modules>
 
