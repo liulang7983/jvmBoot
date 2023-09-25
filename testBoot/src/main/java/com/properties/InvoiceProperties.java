@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 public class InvoiceProperties {
     private  Integer age;
     private String name;
+    private String imageMv;
 
     @PostConstruct
     public void postConstruct(){
@@ -36,11 +37,20 @@ public class InvoiceProperties {
         this.name = name;
     }
 
+    public String getImageMv() {
+        return imageMv;
+    }
+
+    public void setImageMv(String imageMv) {
+        this.imageMv = imageMv;
+    }
+
     @Override
     public String toString() {
         return "InvoiceProperties{" +
                 "age=" + age +
                 ", name='" + name + '\'' +
+                ", imageMv='" + imageMv + '\'' +
                 '}';
     }
 }

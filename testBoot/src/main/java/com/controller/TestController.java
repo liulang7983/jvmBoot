@@ -19,7 +19,7 @@ public class TestController {
     private Integer age;
     @RequestMapping("getInvoice")
     public String getInvoice(){
-        return invoiceProperties.getName();
+        return invoiceProperties.getName()+invoiceProperties.getImageMv();
     }
 
     @RequestMapping("getAge")
