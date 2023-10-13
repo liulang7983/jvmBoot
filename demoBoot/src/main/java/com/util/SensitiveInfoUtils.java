@@ -38,66 +38,53 @@ public class SensitiveInfoUtils {
         String[] split = pattern.split(",");
         if (split.length==1){
             Integer integer = Integer.valueOf(split[0]);
-            if (integer>0){
-                if (integer>=length){
-                    integer=length-1;
-                }
-                str = dataDesensitization(0, integer, str);
-                return str;
-            }else {
-                int abs = Math.abs(integer);
-                if (abs>=length){
-                    integer=1-length;
-                }
-                str = dataDesensitization(length+integer, length, str);
-                return str;
-            }
-        }
-        if (split.length==2){
-            Integer start = Integer.valueOf(split[0]);
-            Integer end = Integer.valueOf(split[1]);
-            if (end>0){
-                if (start>=length){
-                    str = dataDesensitization(0, length-1, str);
-                    return str;
-                }
-                if (end>length){
-                    end=length-1;
-                    if (start>=end){
-                        start=end-1;
-                    }
-                }
-                str = dataDesensitization(start, end, str);
-                return str;
-            }else {
-                if (start>=length){
-                    str = dataDesensitization(0, length-1, str);
+            //大于0且比总长短则脱敏，比总长长则不脱敏
+            if (integer>=0){
+                if(integer<length){
+                    str = dataDesensitization(integer, length, str);
                     return str;
                 }else {
-                    int abs = Math.abs(end);
-                    if (abs>=length){
-                        if (length-1>=start){
-                            start=0;
-                        }
-                        str = dataDesensitization(start, length-1, str);
-                        return str;
-                    }else {
-                        int i = start + abs - length;
-                        if (i>=0){
-                            if (start>=length+i-abs){
-                                str = dataDesensitization(0, start, str);
-                                return str;
-                            }else {
-                                str = dataDesensitization(start, length+i-abs, str);
-                                return str;
-                            }
-                        }else {
-                            str = dataDesensitization(start, length+end, str);
-                            return str;
-                        }
-                    }
+                    return str;
                 }
             }
+            integer = Math.abs(integer);
+            //为负数且绝对值大于总长则全脱敏
+            if (integer>length){
+                integer=length;
+            }
+            str = dataDesensitization(length-integer, length, str);
+            return str;
+        }
+        if (split.length==2){
+            String s = split[0];
+            Integer start=0;
+            if (StringUtils.isNotBlank(s)){
+                start= Integer.valueOf(split[0]);
+            }
+            //开始长度大于总长度则不屏蔽
+            if (start>=length){
+                return str;
+            }
+            //开始位置为负数则从后往前数，如果数的位数大于总长则代表从0开始
+            if (start<0){
+                start=length+start;
+                if (start<0){
+                    start=0;
+                }
+            }
+            Integer end = Integer.valueOf(split[1]);
+            if (end>=length){
+                end=length;
+            }
+            //如果结束位置为负则从后往前数,如果结束位的位数都大于总长则不脱敏
+            if (end<0){
+                end=length+end;
+                if (end<0){
+                    return str;
+                }
+            }
+            str = dataDesensitization(start, end, str);
+            return str;
         }
         return str;
     }

@@ -2416,6 +2416,7 @@ public class Demo1 {
                 "        ]\n" +
                 "    }\n" +
                 "}";
+        System.out.println(str);
         return str;
     }
     public static String getSFZ(){

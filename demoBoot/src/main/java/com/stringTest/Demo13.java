@@ -15,7 +15,12 @@ public class Demo13 {
 
     public static void main(String[] args) {
         String str="我是雷锋ssss";
-        System.out.println(SensitiveInfoUtils.desensitize(str,"4,-4"));
-
+        System.out.println(SensitiveInfoUtils.desensitize(str,"3"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,",7"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,"2,4"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,"2,40"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,"2,-2"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,"2,-40"));
+        System.out.println(SensitiveInfoUtils.desensitize(str,"-3,-2"));
     }
 }

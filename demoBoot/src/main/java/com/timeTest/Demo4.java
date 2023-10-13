@@ -10,7 +10,7 @@ import java.util.Date;
  * @author ming.li
  * @date 2023/8/17 19:44
  */
-public class dEMO4 {
+public class Demo4 {
     public static void main(String[] args) {
         String endTime="2023-08-31";
         try {
