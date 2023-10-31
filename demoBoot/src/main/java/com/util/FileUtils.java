@@ -1,5 +1,10 @@
 package com.util;
 
+import lombok.SneakyThrows;
+import net.coobird.thumbnailator.Thumbnails;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class FileUtils {
@@ -20,7 +25,9 @@ public class FileUtils {
      * 读取文件数据
      */
     public static byte[] getFileBytes(File file) throws IOException {
-        if(!file.exists()||(file.exists()&&!file.isFile()))return null;
+        if(!file.exists()||(file.exists()&&!file.isFile())) {
+            return null;
+        }
         InputStream inStream=new FileInputStream(file);
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
@@ -50,11 +57,28 @@ public class FileUtils {
     public static void cleanDir(File dir){
         if(dir!=null&&dir.isDirectory()){
             for(File file:dir.listFiles()){
-                if(file.isFile())file.delete();
-                if(file.isDirectory())cleanDir(file);
+                if(file.isFile()) {
+                    file.delete();
+                }
+                if(file.isDirectory()) {
+                    cleanDir(file);
+                }
             }
         }
     }
 
+    @SneakyThrows
+    public static void changeFile(File file)  {
+        try {
+            BufferedImage read = ImageIO.read(file);
+            int height = read.getHeight();
+            int width = read.getWidth();
+            if (height>=1000||width>=1000) {
+                Thumbnails.of(file).size(1000,1000).toFile(file);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

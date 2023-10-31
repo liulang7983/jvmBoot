@@ -9,6 +9,8 @@ public class User {
     private String name;
     private String message;
 
+
+
     public Long getId() {
         return id;
     }
