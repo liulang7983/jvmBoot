@@ -81,4 +81,42 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 写入文本文件，若文件存在，则在文件末尾追加
+     *
+     * @param filePath 文本文件路径
+     * @param text     写入的文本内容
+     */
+    public static void writeTextFile(String filePath, String text) {
+        if (null == text || 0 == text.length()) {
+            return;
+        }
+        File file = new File(filePath);
+        try (FileWriter fileWriter = new FileWriter(filePath, true)) {
+            if (!file.exists() && file.createNewFile()) {
+            }
+            fileWriter.write(text);
+            fileWriter.write("\r\n");
+        } catch (Exception e) {
+        }
+    }
+    /**
+     * 写入文本文件，若文件存在，则覆盖性写入
+     *
+     * @param filePath 文本文件路径
+     * @param text     写入的文本内容
+     */
+    public static void writeTextFile1(String filePath, String text) {
+        if (null == text || 0 == text.length()) {
+            return;
+        }
+        File file = new File(filePath);
+        try (FileWriter fileWriter = new FileWriter(filePath, false)) {
+            if (!file.exists() && file.createNewFile()) {
+            }
+            fileWriter.write(text);
+            fileWriter.write("\r\n");
+        } catch (Exception e) {
+        }
+    }
 }
