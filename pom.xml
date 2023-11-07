@@ -19,6 +19,7 @@
         <module>jdkBoot</module>
         <module>execlBoot</module>
         <module>testBoot</module>
+        <module>spring_ioc_javaconfig</module>
     </modules>
 
     <properties>

@@ -3,13 +3,15 @@ package com.controller;
 import com.bean.CheckInvoice;
 import com.bean.User;
 import com.util.FileUtil;
+import org.apache.commons.io.IOUtils;
 import org.springframework.boot.system.ApplicationHome;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -65,5 +67,44 @@ public class FileController {
 
         }
         return "成功";
+    }
+
+    /*@RequestMapping("/getFile/{fileName}")
+    public void getFile(@PathVariable("fileName")String fileName, HttpServletResponse response){
+        try{
+            fileName = java.net.URLEncoder.encode(fileName, "UTF-8").replace("+", "%20");
+
+            File zipFile = new File("D:\\李明"+File.separator+fileName);
+
+            byte[] data = Files.readAllBytes(zipFile.toPath());
+            OutputStream out = response.getOutputStream();
+            response.reset();
+            //response.setHeader("Content-Disposition", "attachment;filename=" + new String((fileName).getBytes(), "UTF-8"));
+            response.setHeader("Content-disposition", "attachment; filename=" + fileName);
+            response.setContentType("application/octet-stream");
+            IOUtils.write(data, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+        }
+    }*/
+
+    @RequestMapping("/getFile/{fileName}")
+    public void getFile(@PathVariable("fileName")String fileName, HttpServletResponse response){
+        try{
+            String path="D:\\李明"+File.separator+fileName;
+            InputStream in = new FileInputStream(path);
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+            OutputStream out = response.getOutputStream();
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = in.read(buffer)) > 0) {
+                out.write(buffer, 0, len);
+            }
+            in.close();
+            out.close();
+        } catch (Exception e) {
+        }
     }
 }
