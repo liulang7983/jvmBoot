@@ -1,7 +1,8 @@
 package com.fileChange;
 
+import com.alibaba.fastjson.JSONObject;
 import com.util.FileUtils;
-import com.util.fileToBase64Util;
+import com.util.FileToBase64Util;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,9 +14,10 @@ import java.io.IOException;
 public class fileToBase64 {
 
     public static void main(String[] args) throws IOException {
-        String s = fileToBase64Util.GetBase64FromFile(new File("C:\\liming\\change\\1.png"));
-        System.out.println(s);
-        FileUtils.writeTextFile1("C:\\liming\\change\\1.txt",s);
+        String s = FileToBase64Util.GetBase64FromFile(new File("C:\\liming\\change\\1.png"));
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("ss",s);
+        FileUtils.writeTextFile1("C:\\liming\\change\\1.txt",jsonObject.toString());
     }
 
 }

@@ -1,14 +1,12 @@
 package com.util;
 
-import com.fileChange.fileToBase64;
-
 import java.io.*;
 
 /**
  * @author ming.li
  * @date 2023/11/8 10:44
  */
-public class fileToBase64Util {
+public class FileToBase64Util {
     private static final char last2byte = (char)Integer.parseInt("00000011", 2);
     private static final char last4byte = (char)Integer.parseInt("00001111", 2);
     private static final char last6byte = (char)Integer.parseInt("00111111", 2);
@@ -30,7 +28,7 @@ public class fileToBase64Util {
             byte[] data = new byte[(int)imageFile.length()];
             in.read(data);
             in.close();
-            base64.append(fileToBase64Util.encode(data));
+            base64.append(FileToBase64Util.encode(data));
         } else {
             throw new FileNotFoundException(imageFile.getAbsolutePath() + " not exist");
         }
