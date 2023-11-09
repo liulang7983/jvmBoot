@@ -28,6 +28,8 @@ public class Demo1 {
             while (true) {
                 //CPU高速轮询：每个future都并发轮循，判断完成状态然后获取结果，
                 // 这一行，是本实现方案的精髓所在。即有10个future在高速轮询，完成一个future的获取结果，就关闭一个轮询
+
+                //f.isDone()如果此任务已完成，则返回true。完成可能是由于正常终止、异常或取消——在所有这些情况下，此方法将返回true
                 if (f.isDone() && !f.isCancelled()) {
                     //获取future成功完成状态，
                     // 如果想要限制每个任务的超时时间，取消本行的状态判断+future.get(1000*1, TimeUnit.MILLISECONDS)+catch超时异常使用即可。
