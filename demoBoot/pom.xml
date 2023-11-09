@@ -191,6 +191,11 @@
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.hex.commons</groupId>
+            <artifactId>goframe-image-io</artifactId>
+            <version>1.5.2</version>
+        </dependency>
     </dependencies>
 
 
