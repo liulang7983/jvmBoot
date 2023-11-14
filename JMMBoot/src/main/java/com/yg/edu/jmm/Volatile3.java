@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  *      -Djava.compiler=NONE
  **/
 @Slf4j
-public class Jmm03_CodeVisibility2 {
+public class Volatile3 {
 
     /**
      此时线程A等待到线程B修改initFlag的值后是会往下走的，因为此时initFlag被volatile修饰，主内存发生修改是会同步到工作内存的

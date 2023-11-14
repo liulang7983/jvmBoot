@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  *      -Djava.compiler=NONE
  **/
 @Slf4j
-public class Jmm03_CodeVisibility1 {
+public class Volatile1 {
 
     /**
      此时线程A是会走下去的，因为counter被volatile修饰，此时也会导致线程A工作内存里面的initFlag重新去主内存里面取
@@ -35,7 +35,7 @@ public class Jmm03_CodeVisibility1 {
         threadA.start();
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

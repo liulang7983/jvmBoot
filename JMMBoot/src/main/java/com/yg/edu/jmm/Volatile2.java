@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  *      -Djava.compiler=NONE
  **/
 @Slf4j
-public class Jmm03_CodeVisibility {
+public class Volatile2 {
 
 
  //    此时线程是会卡住在线程A的while的,线程B修改了initFlag的值对他无感，线程A开启的时候读取到了false，此时不会感知到修改
