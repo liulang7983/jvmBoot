@@ -1,12 +1,10 @@
 package com.yg.edu.queue;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-@Slf4j
+
 public class NumbersProducer implements Runnable {
     private BlockingQueue<Integer> numbersQueue;
     private final int poisonPill;

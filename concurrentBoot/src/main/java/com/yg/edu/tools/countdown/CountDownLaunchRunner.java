@@ -1,10 +1,8 @@
 package com.yg.edu.tools.countdown;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.CountDownLatch;
 
-@Slf4j
+
 public class CountDownLaunchRunner {
 
     static int sub = 0;

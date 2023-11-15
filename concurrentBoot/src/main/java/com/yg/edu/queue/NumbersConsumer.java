@@ -1,11 +1,9 @@
 package com.yg.edu.queue;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.BlockingQueue;
 
 
-@Slf4j
+
 public class NumbersConsumer implements Runnable {
     private BlockingQueue<Integer> queue;
     private final int poisonPill;
