@@ -20,6 +20,7 @@
         <module>execlBoot</module>
         <module>testBoot</module>
         <module>spring_ioc_javaconfig</module>
+        <module>modelBoot</module>
     </modules>
 
     <properties>

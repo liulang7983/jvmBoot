@@ -12,6 +12,7 @@
         <module name="syncronizedBoot" />
         <module name="demoBoot" />
         <module name="JMMBoot" />
+        <module name="modelBoot" />
         <module name="testBoot" />
         <module name="threadpoolBoot" />
         <module name="concurrentBoot" />
