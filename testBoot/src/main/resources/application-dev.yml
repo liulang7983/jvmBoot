@@ -1,3 +1,5 @@
+server:
+  port: 8083
 invoice:
   age: 20
   name: 张三
