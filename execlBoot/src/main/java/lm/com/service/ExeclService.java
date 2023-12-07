@@ -1,5 +1,7 @@
 package lm.com.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -9,6 +11,8 @@ import java.io.IOException;
  */
 public interface ExeclService {
     void execl1(HttpServletResponse res);
-    void execl2(HttpServletResponse res);
-
+    void read(MultipartFile file) throws IOException;
+    void read2(MultipartFile file) throws Exception;
+    void copy(MultipartFile file) throws Exception;
+    void deleteAndCopy() throws Exception;
 }
