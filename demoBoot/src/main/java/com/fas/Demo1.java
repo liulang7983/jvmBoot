@@ -1,5 +1,6 @@
 package com.fas;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -10,5 +11,6 @@ public class Demo1 {
     public static void main(String[] args) {
         String uuid= UUID.randomUUID().toString().replace("-", "").toLowerCase();
         System.out.println(uuid);
+        Objects.equals("s","ss");
     }
 }

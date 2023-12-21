@@ -13,7 +13,7 @@ public class CyclicBarrierDemo {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
         new Thread(() -> {
             try {
-                Thread.sleep(10_000);
+                Thread.sleep(10_00);
                 System.out.println("t1 在准备 ");
                 cyclicBarrier.await();   // 等另外一个一个线程准备好 然后开始做事情
                 System.out.println("t1 准备好了  ");

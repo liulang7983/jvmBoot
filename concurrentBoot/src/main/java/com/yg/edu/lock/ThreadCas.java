@@ -33,9 +33,9 @@ public class ThreadCas {
             try {
                 cyclicBarrier.await();
                 if(cas.compareAndSwapState(0,1)){
-                    System.out.println("当前请求:{},抢到锁!"+Thread.currentThread().getName());
+                    System.out.println("当前请求,抢到锁:"+Thread.currentThread().getName());
                 }else{
-                    System.out.println("当前请求:{},抢锁失败!"+Thread.currentThread().getName());
+                    System.out.println("当前请求,抢锁失败:"+Thread.currentThread().getName());
                 }
             } catch (InterruptedException|BrokenBarrierException e) {
                 e.printStackTrace();

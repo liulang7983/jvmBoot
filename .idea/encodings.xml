@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JMMBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JMMBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/JMMBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/atomicBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/atomicBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/atomicBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/collectionsBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/collectionsBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/concurrentBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/concurrentBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demoBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demoBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/execlBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/execlBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/execlBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jdkBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdkBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jdkBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/modelBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/modelBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/modelBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_ioc_javaconfig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring_ioc_javaconfig/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring_ioc_javaconfig/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/syncronizedBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/syncronizedBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/testBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/testBoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/threadpoolBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpoolBoot/src/main/resources" charset="UTF-8" />
   </component>
