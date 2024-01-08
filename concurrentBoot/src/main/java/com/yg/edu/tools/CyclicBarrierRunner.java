@@ -11,7 +11,7 @@ public class CyclicBarrierRunner implements Runnable {
         this.cyclicBarrier = cyclicBarrier;
         this.index = index;
     }
-
+    @Override
     public void run() {
         try {
             System.out.println("index: " + index);
@@ -36,9 +36,9 @@ public class CyclicBarrierRunner implements Runnable {
         cyclicBarrier.await();
         System.out.println("全部到达屏障....1");
 
-        Thread.sleep(5000);
-        System.out.println("暂停五秒后====================================");
-        for (int i = 0; i < 10; i++) {
+        Thread.sleep(2000);
+        System.out.println("暂停两秒后====================================");
+        for (int i = 0; i < 9; i++) {
             new Thread(new CyclicBarrierRunner(cyclicBarrier, i)).start();
         }
         cyclicBarrier.await();

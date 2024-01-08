@@ -2,7 +2,6 @@ package com.yg.edu.lock;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -25,7 +24,7 @@ public class ThreadReentrantLock2 {
         for (int i=0;i<10;i++){
             Thread t = new Thread(()->{
                 lock.lock();
-                System.out.println(Thread.currentThread().getName()+"get lock");
+                System.out.println(Thread.currentThread().getName()+" get lock");
                     //拿到中断信号
                     while (!flag){
                         if(flag){

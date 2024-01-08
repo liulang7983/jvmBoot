@@ -34,7 +34,7 @@ public class Jmm02_CpuCache {
                 }
             }
         }
-        System.out.println("long[i][j]在i循环j  spend time1:"+(System.currentTimeMillis()-start));
+        System.out.println("long[i][j]在里面i循环j  spend time1:"+(System.currentTimeMillis()-start));
         System.out.println("sum1:"+sum);
 
         sum = 0L;
@@ -46,7 +46,7 @@ public class Jmm02_CpuCache {
                 }
             }
         }
-        System.out.println("long[i][j]在j循环i spend time2:"+(System.currentTimeMillis()-start));
+        System.out.println("long[i][j]在j里面循环i spend time2:"+(System.currentTimeMillis()-start));
         System.out.println("sum2:"+sum);
         /**
          解释:空间局限性所谓的连续空间指的是比如longs[1][0],longs[1][1],longs[1][2],longs[1][3],longs[1][4]

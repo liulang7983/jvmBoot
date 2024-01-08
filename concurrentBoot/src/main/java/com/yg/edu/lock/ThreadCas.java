@@ -1,7 +1,6 @@
 package com.yg.edu.lock;
 
 import com.yg.edu.util.UnsafeInstance;
-import lombok.extern.slf4j.Slf4j;
 import sun.misc.Unsafe;
 
 import java.util.concurrent.BrokenBarrierException;
@@ -17,11 +16,15 @@ public class ThreadCas {
     private static CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
     private static ThreadCas cas = new ThreadCas();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new Thread(new Worker(),"t-0").start();
+        Thread.sleep(100);
         new Thread(new Worker(),"t-1").start();
+        Thread.sleep(100);
         new Thread(new Worker(),"t-2").start();
+        Thread.sleep(100);
         new Thread(new Worker(),"t-3").start();
+        Thread.sleep(100);
         new Thread(new Worker(),"t-4").start();
     }
 
@@ -29,7 +32,7 @@ public class ThreadCas {
 
         @Override
         public void run() {
-            System.out.println("请求:{}到达预定点,准备开始抢state:)"+Thread.currentThread().getName());
+            System.out.println("请求到达预定点,准备开始抢state:)"+Thread.currentThread().getName());
             try {
                 cyclicBarrier.await();
                 if(cas.compareAndSwapState(0,1)){

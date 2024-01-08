@@ -1,6 +1,5 @@
 package com.yg.edu.jmm;
 
-import com.yg.edu.jmm.util.UnsafeInstance;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -41,9 +40,6 @@ public class Jmm05_CodeReorder {
                     a = 1;
                     x = b;
                     //UnsafeInstance.reflectGetUnsafe().fullFence();
-                    ///
-                    //
-                    //
                 }
             });
 

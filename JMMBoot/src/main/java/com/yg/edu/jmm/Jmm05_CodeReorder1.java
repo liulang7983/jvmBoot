@@ -37,9 +37,6 @@ public class Jmm05_CodeReorder1 {
                     a = 1;
                     x = b;
                     UnsafeInstance.reflectGetUnsafe().fullFence();
-                    ///
-                    //
-                    //
                 }
             });
 
