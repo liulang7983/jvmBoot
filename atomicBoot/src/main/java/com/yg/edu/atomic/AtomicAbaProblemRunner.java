@@ -39,7 +39,7 @@ public class AtomicAbaProblemRunner {
                 System.out.println("干扰线程操作线程" + Thread.currentThread().getName() + "--increase后值:" + atomicInteger.get());
                 //此时如果暂停3秒多则前面会失败
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

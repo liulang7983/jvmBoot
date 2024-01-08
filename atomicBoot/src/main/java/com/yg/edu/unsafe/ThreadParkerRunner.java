@@ -3,8 +3,6 @@ package com.yg.edu.unsafe;
 import com.yg.edu.utils.UnsafeInstance;
 import sun.misc.Unsafe;
 
-import java.util.concurrent.locks.LockSupport;
-
 
 public class ThreadParkerRunner {
 
