@@ -14,11 +14,11 @@
         <module name="collectionsBoot" />
         <module name="demoBoot" />
         <module name="execlBoot" />
-        <module name="atomicBoot" />
+        <module name="jdkBoot" />
         <module name="modelBoot" />
         <module name="threadpoolBoot" />
         <module name="syncronizedBoot" />
-        <module name="jdkBoot" />
+        <module name="atomicBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
