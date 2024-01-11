@@ -8,7 +8,7 @@ import java.util.concurrent.CyclicBarrier;
  * @date 2023/6/29 19:27
  */
 public class CyclicBarrierDemo {
-
+    //循环栅栏
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
         new Thread(() -> {

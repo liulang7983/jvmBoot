@@ -27,7 +27,7 @@ public class ThreadPool2 {
                 }
             },i);
         }
-
+        System.out.println("我要停止执行");//还没到这就挂了
         threadPoolExecutor.shutdown();  //running->shutdown
         System.out.println("我执行了停止");
 

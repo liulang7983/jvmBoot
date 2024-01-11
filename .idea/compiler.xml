@@ -7,18 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="concurrentBoot" />
+        <module name="execlBoot" />
         <module name="spring_ioc_javaconfig" />
-        <module name="JMMBoot" />
+        <module name="atomicBoot" />
         <module name="testBoot" />
         <module name="collectionsBoot" />
         <module name="demoBoot" />
-        <module name="execlBoot" />
-        <module name="jdkBoot" />
+        <module name="concurrentBoot" />
+        <module name="JMMBoot" />
         <module name="modelBoot" />
         <module name="threadpoolBoot" />
         <module name="syncronizedBoot" />
-        <module name="atomicBoot" />
+        <module name="jdkBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
