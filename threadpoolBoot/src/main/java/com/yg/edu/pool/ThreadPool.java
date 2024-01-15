@@ -1,7 +1,6 @@
 package com.yg.edu.pool;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +10,6 @@ public class ThreadPool {
     public static void main(String[] args)throws Exception {
         /*当任务队列很长时，此时任务可以全部执行
         当任务队列短，且设置为shutdown会丢任务
-
         */
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 5000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));

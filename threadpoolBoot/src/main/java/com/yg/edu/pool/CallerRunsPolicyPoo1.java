@@ -34,6 +34,6 @@ class CallerRunsPolicyRunnable implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("i m task ："+Thread.currentThread().getName());
+        System.out.println("i m task :"+Thread.currentThread().getName());
     }
 }

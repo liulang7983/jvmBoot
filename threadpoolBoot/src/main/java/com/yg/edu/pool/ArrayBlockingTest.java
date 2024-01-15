@@ -24,7 +24,7 @@ class RejectedExecutionTest1 implements RejectedExecutionHandler{
     @Override
     public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
         ArrayBlockingTest1 r1 = (ArrayBlockingTest1) r;
-        System.out.println("我是:"+r1.getIndex()+"我线程和队列爆满，写入数据库");
+        System.out.println("我是:"+r1.getIndex()+",线程和队列爆满，写入数据库");
     }
 }
 

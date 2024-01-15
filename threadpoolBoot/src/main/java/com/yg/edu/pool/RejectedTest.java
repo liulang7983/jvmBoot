@@ -2,10 +2,7 @@ package com.yg.edu.pool;
 
 import com.alibaba.fastjson.JSON;
 
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @author ming.li
@@ -26,7 +23,6 @@ public class RejectedTest {
     }
 
     public static class RejectedCustom implements RejectedExecutionHandler {
-
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             String s = JSON.toJSONString(r);
