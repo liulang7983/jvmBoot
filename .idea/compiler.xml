@@ -8,8 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="execlBoot" />
+        <module name="fasBoot" />
         <module name="spring_ioc_javaconfig" />
-        <module name="atomicBoot" />
+        <module name="jdkBoot" />
         <module name="testBoot" />
         <module name="collectionsBoot" />
         <module name="demoBoot" />
@@ -18,7 +19,7 @@
         <module name="modelBoot" />
         <module name="threadpoolBoot" />
         <module name="syncronizedBoot" />
-        <module name="jdkBoot" />
+        <module name="atomicBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

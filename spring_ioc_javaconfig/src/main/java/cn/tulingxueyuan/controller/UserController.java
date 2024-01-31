@@ -1,15 +1,9 @@
 package cn.tulingxueyuan.controller;
 
 
-import cn.tulingxueyuan.beans.User;
-import cn.tulingxueyuan.service.BaseService;
 import cn.tulingxueyuan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-
-import javax.annotation.Resource;
 
 /***
  * @Author 徐庶   QQ:1092002729
@@ -34,39 +28,35 @@ public class UserController {
     /**
      * @Autowired和@Resource区别
      * @Resource 依赖jdk  @Autowired依赖spring
-     *  @Resource 优先根据名字匹配
-     *  @Autowired 优先根据类型匹配
+     * @Resource 优先根据名字匹配
+     * @Autowired 优先根据类型匹配
      */
     @Autowired
     //@Qualifier("userServiceImpl")
-    //@Resource
-     UserService userService;
+            //@Resource
+            UserService userService;
 
 
     /**
      * @Autowired 也可以写在构造器上面
      * ·默认优先根据参数类型去匹配
      * ·如果匹配到多个类型则会按照参数名字匹配
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }*/
+     @Autowired public UserController(UserService userService) {
+     this.userService = userService;
+     }*/
 
     /**
+     * @param userService
      * @Autowired 也可以写在方法上面
      * ·默认优先根据参数类型去匹配
      * ·如果匹配到多个类型则会按照参数名字匹配
-     * @param userService
-
-    @Autowired
-    public void createUserSerive(@Qualifier("userServiceImpl")UserService userService){
-        this.userService=userService;
-    }*/
+     * @Autowired public void createUserSerive(@Qualifier("userServiceImpl")UserService userService){
+     * this.userService=userService;
+     * }
+     */
 
 
-
-
-    public void getUser(){
+    public void getUser() {
         userService.getBean();
     }
 }
