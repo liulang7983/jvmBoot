@@ -7,7 +7,9 @@ import java.math.BigDecimal;
 public class Demo1 {
 
     public static void main(String[] args) {
-        String text1="1.00 0.00:0.00";
+        String text1="项。";
+        String string="测试<>《》！*(^)$%~!@#$…&%￥—+=、。，；‘’“”：·`文本";
+        System.out.println(text1.replaceAll("\\pP|\\pS", ""));
         text1=processSpecStr(text1);
         text1 = text1.replaceAll("[^\\d.]", "");
         System.out.println(removePoint(text1));
