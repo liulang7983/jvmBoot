@@ -1,10 +1,13 @@
 package test;
 
 public class Demo7 {
+    public static int head=0;
+    public static int tail=0;
     /*给定一个整型数组arr，代表数值不同的纸牌排成一条线，玩家A和玩家B依次拿走每张纸牌，规定玩家A先拿，
     玩家B后拿，但是每个玩家每次只能拿走最左和最右的纸牌，玩家A和玩家B绝顶聪明。请返回最后的获胜者的分数*/
     public static void main(String[] args) {
-        int[] arr={1,5,4,2,6};
+        int[] arr={1,5,4,2,5,4};
+        tail=arr.length;
         System.out.println(win1(arr));
     }
 
@@ -21,7 +24,7 @@ public class Demo7 {
     //arr[l...r] 先手获得的最好分数返回
     public static int f(int[] arr, int l, int r) {
         if (l == r) return arr[l];
-
+        //假設拿了首位的，那么下次我再拿的时候对方肯定拿了剩下的里面最大的，我第三次拿实际上就是拿去第二次去掉最大后选一个
         int p1 = arr[l] + g(arr, l + 1, r);
         int p2 = arr[r] + g(arr, l, r - 1);
         return Math.max(p1, p2);
@@ -30,10 +33,10 @@ public class Demo7 {
     //arr[l...r]，后手获得的最好分数返回
     public static int g(int[] arr, int l, int r) {
         if (l == r) return 0;
-
         int p1 = f(arr, l + 1, r); //对手拿走了l位置的数
         int p2 = f(arr, l, r - 1); //对手拿走了r位置的数
         return Math.min(p1, p2);
     }
+
 
 }
