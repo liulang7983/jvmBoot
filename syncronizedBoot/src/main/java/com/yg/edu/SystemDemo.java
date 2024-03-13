@@ -28,12 +28,12 @@ public class SystemDemo {
         }
         System.out.println(counter);
     }
-    //此时不加锁不加volatile也可以到10000，是因为println里面是加锁的
+    //此时不加锁不加volatile也可以到10000，是因为println里面是加锁的(有误)
     @Test
     public void test2(){
         for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(() -> {
-                for (int j = 0; j < 1000; j++) {
+                for (int j = 0; j <1000; j++) {
                     System.out.println( counter++);;
                 }
             });

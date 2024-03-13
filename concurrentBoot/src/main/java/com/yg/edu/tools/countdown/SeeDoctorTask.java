@@ -9,7 +9,7 @@ public class SeeDoctorTask implements Runnable {
     public SeeDoctorTask(CountDownLatch countDownLatch){
         this.countDownLatch = countDownLatch;
     }
-
+    @Override
     public void run() {
         try {
             System.out.println("开始看医生");
@@ -18,8 +18,9 @@ public class SeeDoctorTask implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
-            if (countDownLatch != null)
+            if (countDownLatch != null){
                 countDownLatch.countDown();
+            }
         }
     }
 
