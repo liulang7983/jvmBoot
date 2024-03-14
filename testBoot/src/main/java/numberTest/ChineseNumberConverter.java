@@ -114,13 +114,16 @@ public class ChineseNumberConverter {
         String s4 = "拾壹亿壹仟万伍仟肆佰壹拾元贰角捌分肆厘";
         String s5 = "拾伍万圆";
         String s6="壹拾壹万贰仟捌佰元整";
+        String s7="壹拾壹万贰仟捌佰元叁角叁分";
+        String s8="贰仟万捌佰元";
         System.out.printf("%s = %6.2f\n", s1, chinese2Number(s1));
         System.out.printf("%s = %6.2f\n", s2, chinese2Number(s2));
         System.out.printf("%s = %6.2f\n", s3, chinese2Number(s3));
         System.out.printf("%s = %6.2f\n", s4, chinese2Number(s4));
         System.out.printf("%s = %6.2f\n", s5, chinese2Number(s5));
         System.out.printf("%s = %6.2f\n", s6, chinese2Number(s6));
-
+        System.out.printf("%s = %6.2f\n", s7, chinese2Number(s7));
+        System.out.printf("%s = %6.2f\n", s8, chinese2Number(s8));
     }
 
 }
