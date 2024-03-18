@@ -13,6 +13,7 @@ public class Demo4 {
             }
         }
         System.out.println("ss");
-        System.out.println("ss\r李");
+        System.out.println("===");
+        System.out.println("ss\n李");
     }
 }

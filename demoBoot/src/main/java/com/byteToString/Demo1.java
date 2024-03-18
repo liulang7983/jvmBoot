@@ -12,6 +12,7 @@ public class Demo1 {
         json.put("张","张三");
         json.put("李四","李四");
         byte[] bytes = json.toString().getBytes();
+        System.out.println(bytes);
         String s = new String(bytes);
         System.out.println(s);
     }
