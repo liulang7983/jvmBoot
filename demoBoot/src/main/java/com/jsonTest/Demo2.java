@@ -27,7 +27,11 @@ public class Demo2 {
         //通过下标删除
         jsonArray.remove(1);
         System.out.println(jsonArray.toJSONString());
+        //通过下标插入，原先的值往后延
         jsonArray.add(0,object3);
+        System.out.println(jsonArray.toJSONString());
+        //通过下标替换
+        jsonArray.set(0,object2);
         System.out.println(jsonArray.toJSONString());
     }
 }
