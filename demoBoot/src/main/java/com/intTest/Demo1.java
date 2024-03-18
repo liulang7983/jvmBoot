@@ -9,6 +9,7 @@ public class Demo1 {
         int s1=300;
         Integer s2=300;
         Integer s3=new Integer(300);
+        Integer s4=new Integer(300);
         if (s1==s2){
             System.out.println("S1S2相等");
         }else {
@@ -20,9 +21,19 @@ public class Demo1 {
             System.out.println("S1S3不相等");
         }
         if (s3.equals(s2)){
+            System.out.println("S3S2值相等");
+        }else {
+            System.out.println("S3S2值不相等");
+        }
+        if (s3==2){
             System.out.println("S3S2相等");
         }else {
             System.out.println("S3S2不相等");
+        }
+        if (s3.equals(s4)){
+            System.out.println("S3S4相等");
+        }else {
+            System.out.println("S3S4不相等");
         }
     }
 }
