@@ -2,12 +2,18 @@ package com.util;
 
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class FileUtil {
+    private static final Logger logger = LoggerFactory.getLogger(FileUtil.class);
     public static String readJsonFile() {
         try {
             // 读取JSON文件内容
@@ -35,5 +41,26 @@ public class FileUtil {
         }
         return sb.toString();
 
+    }
+    /**
+     * 读取资源文件
+     *
+     * @param fileName:资源文件名
+     * @return
+     */
+    public static String readResourceFileToString(String fileName, String cs) {
+        StringBuilder sb = new StringBuilder();
+        try (InputStream is = FileUtil.class.getClassLoader().getResourceAsStream(fileName);
+             InputStreamReader isr = new InputStreamReader(is, cs)) {
+            try (BufferedReader reader = new BufferedReader(isr)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line.trim());
+                }
+            }
+        } catch (IOException e) {
+            logger.error("获取文件出错:", e);
+        }
+        return sb.toString();
     }
 }

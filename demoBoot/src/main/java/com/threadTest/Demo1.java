@@ -61,7 +61,7 @@ public class Demo1 {
                 Thread.sleep(2000);
                 at.start();
                 //此处不等待执行则主线程会直接走到后面打印 main end!
-                //等待at执行完再继续往下走
+                //主线程等待at执行完再继续往下走
                 at.join();
             } catch (Exception e) {
                 System.out.println("Exception from main");
