@@ -5,15 +5,15 @@ package lm.com.bean;
  * @date 2023/5/18 10:48
  */
 public class User {
-    private Long id;
+    private Float id;
     private String name;
     private String message;
 
-    public Long getId() {
+    public Float getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Float id) {
         this.id = id;
     }
 
@@ -36,7 +36,7 @@ public class User {
 
     }
 
-    public User(Long id, String name, String message) {
+    public User(Float id, String name, String message) {
         this.id = id;
         this.name = name;
         this.message = message;

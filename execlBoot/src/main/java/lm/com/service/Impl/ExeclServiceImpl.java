@@ -4,17 +4,14 @@ import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.event.SyncReadListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
-import com.alibaba.excel.support.ExcelTypeEnum;
 import com.alibaba.fastjson.JSONObject;
 import com.aspose.cells.*;
 import lm.com.bean.User;
 import lm.com.service.ExeclService;
-import lm.com.utils.ExcelDataListener;
 import lm.com.utils.FileUtils;
-import org.apache.batik.css.engine.value.StringValue;
+import org.apache.poi.ss.usermodel.BuiltinFormats;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -24,7 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -67,9 +67,16 @@ public class ExeclServiceImpl implements ExeclService {
         //设置行高，防止自动换行导致变宽
         sheet.setDefaultRowHeight((short)300);
 
+        // 创建一个样式对象
+        CellStyle cellStyle1 = workbook.createCellStyle();
+        // 设置自动换行
+        cellStyle1.setWrapText(true);
+        DataFormat format = workbook.createDataFormat();
+        short format1 = format.getFormat(BuiltinFormats.getBuiltinFormat(8));
+        cellStyle1.setDataFormat(format1);
         List<User> list=new ArrayList<>();
-        list.add(new User(1L,"张三","张三三"));
-        list.add(new User(3L,"李四","李四\r\n四================================================================"));
+        list.add(new User(1.2345688965F,"张三","张三三"));
+        list.add(new User(3.23F,"李四","李四\r\n四================================================================"));
 
         try {
             for (int i = 0; i < list.size(); i++) {
@@ -86,7 +93,12 @@ public class ExeclServiceImpl implements ExeclService {
                             field.setAccessible(true);
                             String s = field.get(user).toString();
                             XSSFCell cell = row.createCell(index);
-                            cell.setCellStyle(cellStyle);
+                            if (name.equals("id")){
+                                cell.setCellStyle(cellStyle1);
+                            }else {
+                                cell.setCellStyle(cellStyle);
+                            }
+
                             cell.setCellValue(s);
                             index++;
                         }
