@@ -11,3 +11,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.buba.springcloud.pojo
+
+test:
+  url: http://127.0.0.1:8009/testResurces/getPort
+  port: 8888

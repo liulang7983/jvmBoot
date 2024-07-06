@@ -1,6 +1,7 @@
 package com.listTest;
 
 import com.bean.LeaseDetail;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -15,8 +16,8 @@ import java.util.stream.Collectors;
 public class Demo12 {
     public static void main(String[] args) {
         List<LeaseDetail> list=new ArrayList<>();
-        list.add(new LeaseDetail("张三",0,3));
-        list.add(new LeaseDetail("李四",2,1));
+        list.add(new LeaseDetail("张三  ",0,3));
+        list.add(new LeaseDetail("李四  ",2,1));
         list.add(new LeaseDetail("王五",0,1));
         list.add(new LeaseDetail("赵六",0,1));
         list.add(new LeaseDetail("田七",0,3));
@@ -24,7 +25,11 @@ public class Demo12 {
 
 
         for (int i = 0; i <collect.size() ; i++) {
-            System.out.println(collect.get(i).getName());
+            System.out.println(collect.get(i).getName().trim()+"ss");
+        }
+        String s="  ";
+        if (StringUtils.isNotEmpty(s)){
+            System.out.println("不为空");
         }
     }
 }
