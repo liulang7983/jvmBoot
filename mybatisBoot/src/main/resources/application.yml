@@ -3,10 +3,14 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: root
+    #driver-class-name: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    #username: root
+    #password: root
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@172.18.26.12:1521/helowin
+    username: leris_demo
+    password: Shhex1234
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

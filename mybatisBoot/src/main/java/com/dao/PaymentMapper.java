@@ -15,4 +15,5 @@ public interface PaymentMapper {
     int insert(Payment payment);
     List<Payment> selectList();
     List<Payment> selectListByid(List list);
+    List<Payment> selectListAllByid(List list);
 }

@@ -7,9 +7,9 @@
     </resultMap>
 
     <insert id="insert" parameterType="com.bean.Payment">
-        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER" statementType="STATEMENT">
+        <!--<selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER" statementType="STATEMENT">
             SELECT LAST_INSERT_ID()
-        </selectKey>
+        </selectKey>-->
         insert into payment(SERIAL)values(#{serial,jdbcType=VARCHAR})
     </insert>
     <!--实验证明此时nvl(PARENT_TYPE_ID,'') 哪怕替换了最后拿到的值还是null，oracle特有-->
@@ -22,6 +22,14 @@
         <foreach collection="list" open="(" close=")" separator="," item="id">
             #{id ,jdbcType=INTEGER}
         </foreach>
+    </select>
+
+    <select id="selectListAllByid" parameterType="java.util.List" resultMap="BaseResultMap">
+        SELECT * from payment where
+        (id in
+        <foreach collection="list" open="(" close=")" separator="," item="id" index="index">
+            <if test="(index % 999) == 998"> null ) OR id in(</if> #{id ,jdbcType=INTEGER}
+        </foreach>)
     </select>
 
 </mapper>

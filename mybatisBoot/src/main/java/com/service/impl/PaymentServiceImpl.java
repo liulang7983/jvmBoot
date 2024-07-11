@@ -36,7 +36,26 @@ public class PaymentServiceImpl implements PaymentService {
         for (int i = 0; i <payments.size() ; i++) {
             list.add(payments.get(i).getId());
         }
-        List<Payment> payments1 = paymentMapper.selectListByid(list);
+
+        int i = list.size() / 977;
+        int i1 = list.size() % 977;
+        if (i1>0){
+            i+=1;
+        }
+        List<Payment> allList=new ArrayList<>();
+
+        for (int j = 0; j <i ; j++) {
+            List<Integer> list1 =new ArrayList<>();
+            if (j==i-1){
+                list1 = list.subList(j * 977, list.size());
+            }else {
+                list1 = list.subList(j * 977, (j + 1)*977);
+            }
+            List<Payment> payments1 = paymentMapper.selectListByid(list1);
+            allList.addAll(payments1);
+        }
+        List<Payment> payments1 = paymentMapper.selectListAllByid(list);
+        System.out.println(allList.size());
         System.out.println(payments1.size());
     }
 }
