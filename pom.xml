@@ -22,6 +22,7 @@
         <module>spring_ioc_javaconfig</module>
         <module>modelBoot</module>
         <module>fasBoot</module>
+        <module>mybatisBoot</module>
     </modules>
 
     <properties>
