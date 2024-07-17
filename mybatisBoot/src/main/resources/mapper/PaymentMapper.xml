@@ -16,14 +16,14 @@
     <select id="selectList" resultMap="BaseResultMap">
         SELECT * from payment
     </select>
-
+    <!--in超过1000，java端分段截取查询-->
     <select id="selectListByid" parameterType="java.util.List" resultMap="BaseResultMap">
         SELECT * from payment where id in
         <foreach collection="list" open="(" close=")" separator="," item="id">
             #{id ,jdbcType=INTEGER}
         </foreach>
     </select>
-
+    <!--in超过1000，sql特殊处理，多个or in 保证每段不超过 1000-->
     <select id="selectListAllByid" parameterType="java.util.List" resultMap="BaseResultMap">
         SELECT * from payment where
         (id in
