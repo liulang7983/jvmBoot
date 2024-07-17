@@ -68,18 +68,33 @@ public class PaymentServiceImpl implements PaymentService {
         List<Integer> list2 =new ArrayList<>();
         List<Integer> list3 =new ArrayList<>();
         List<Payment> paymentList=new ArrayList<>();
-        for (int i = 4100; i <4400 ; i++) {
+        for (int i = 1100; i <1400 ; i++) {
             list1.add(i);
         }
-        for (int i = 4300; i <4600 ; i++) {
+        for (int i = 1300; i <1600 ; i++) {
             list2.add(i);
         }
-        for (int i = 4600; i <4900 ; i++) {
+        for (int i = 1600; i <1900 ; i++) {
             list3.add(i);
         }
         paymentList.addAll(paymentMapper.selectListByid(list1));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         paymentList.addAll(paymentMapper.selectListByid(list2));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         paymentList.addAll(paymentMapper.selectListByid(list3));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         long end = System.currentTimeMillis();
         System.out.println("selectListSerial耗时:"+(end-start));
         return paymentList;
@@ -93,22 +108,37 @@ public class PaymentServiceImpl implements PaymentService {
         List<Integer> list3 =new ArrayList<>();
         List<Payment> paymentList=new ArrayList<>();
         CompletableFuture<Boolean> future = CompletableFuture.supplyAsync(() -> {
-            for (int i = 4100; i < 4400; i++) {
+            for (int i = 1100; i < 1400; i++) {
                 list1.add(i);
             }
             paymentList.addAll(paymentMapper.selectListByid(list1));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }).thenApplyAsync((q) -> {
-            for (int i = 4300; i < 4600; i++) {
+            for (int i = 1300; i < 1600; i++) {
                 list2.add(i);
             }
             paymentList.addAll(paymentMapper.selectListByid(list2));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }).thenApplyAsync((q) -> {
-            for (int i = 4600; i < 4900; i++) {
+            for (int i = 1600; i < 1900; i++) {
                 list3.add(i);
             }
             paymentList.addAll(paymentMapper.selectListByid(list3));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         });
         try {
