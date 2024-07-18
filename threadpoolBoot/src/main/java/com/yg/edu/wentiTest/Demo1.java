@@ -1,4 +1,4 @@
-package com.yg.edu.questionTest;
+package com.yg.edu.wentiTest;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;

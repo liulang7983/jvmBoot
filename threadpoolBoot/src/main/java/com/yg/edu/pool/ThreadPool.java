@@ -19,6 +19,7 @@ public class ThreadPool {
         }
         System.out.println(threadPoolExecutor.isTerminated());
         threadPoolExecutor.shutdown();  //running->shutdown
+        System.out.println("已停止");
         //停止后再添加线程，此时会报错说线程的状态为down
         threadPoolExecutor.submit(new MyRunnable1(),1);
         //threadPoolExecutor.shutdownNow(); //running->stop

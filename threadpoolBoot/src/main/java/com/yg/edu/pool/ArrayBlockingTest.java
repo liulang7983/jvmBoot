@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
  * @date 2023/7/17 19:42
  */
 public class ArrayBlockingTest {
+    /**
+     * 自定义拒绝策略，此时可以在拒绝策略里把处理不了的放数据库晚上用定时调度到时候再处理
+     * @param args
+     */
     public static void main(String[] args) {
         ThreadPoolExecutor poolExecutor=new ThreadPoolExecutor(2,4,2000, TimeUnit.SECONDS,new ArrayBlockingQueue<>(20,true),new RejectedExecutionTest1());
         for (int i = 0; i < 200; i++) {

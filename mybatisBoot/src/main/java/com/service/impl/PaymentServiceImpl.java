@@ -117,6 +117,7 @@ public class PaymentServiceImpl implements PaymentService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("执行完了0");
             return true;
         }).thenApplyAsync((q) -> {
             for (int i = 1300; i < 1600; i++) {
@@ -128,6 +129,7 @@ public class PaymentServiceImpl implements PaymentService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("执行完了1");
             return true;
         }).thenApplyAsync((q) -> {
             for (int i = 1600; i < 1900; i++) {
@@ -139,6 +141,7 @@ public class PaymentServiceImpl implements PaymentService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("执行完了2");
             return true;
         });
         try {
