@@ -31,5 +31,10 @@ public class Demo12 {
         if (StringUtils.isNotEmpty(s)){
             System.out.println("不为空");
         }
+        if (StringUtils.isNotBlank(s)){
+            System.out.println("不为空");
+        }else {
+            System.out.println("为空");
+        }
     }
 }

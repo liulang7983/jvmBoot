@@ -25,7 +25,7 @@ public class Demo1 {
         }else {
             System.out.println("S3S2值不相等");
         }
-        if (s3==2){
+        if (s3==s2){
             System.out.println("S3S2相等");
         }else {
             System.out.println("S3S2不相等");

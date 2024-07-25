@@ -25,7 +25,7 @@ public class Volatile2 {
 
     public static void main(String[] args){
         Thread threadA = new Thread(()->{
-            log.info("进入线程A");
+            System.out.println("进入线程A");
             while (!initFlag){
                 //System.out.println("runing");
                 counter++;

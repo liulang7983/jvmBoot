@@ -25,7 +25,7 @@ public class CyclicBarrierDemo {
 
         new Thread(() -> {
             try {
-                Thread.sleep(5_000);
+                Thread.sleep(3_000);
                 System.out.println("t2 在准备  ");
                 cyclicBarrier.await(); // 等另外一个一个线程准备好 然后开始做事情
                 System.out.println("t2开始运行");

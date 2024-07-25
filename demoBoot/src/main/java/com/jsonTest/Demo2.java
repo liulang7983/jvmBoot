@@ -24,14 +24,15 @@ public class Demo2 {
         object3.put("ss","ss");
         //通过具体对象删除
         jsonArray.remove(object3);
+        System.out.println("通过具体对象删除:"+jsonArray.toJSONString());
         //通过下标删除
         jsonArray.remove(1);
-        System.out.println(jsonArray.toJSONString());
+        System.out.println("通过下标删除:"+jsonArray.toJSONString());
         //通过下标插入，原先的值往后延
         jsonArray.add(0,object3);
-        System.out.println(jsonArray.toJSONString());
+        System.out.println("通过下标插入，原先的值往后延:"+jsonArray.toJSONString());
         //通过下标替换
         jsonArray.set(0,object2);
-        System.out.println(jsonArray.toJSONString());
+        System.out.println("通过下标替换:"+jsonArray.toJSONString());
     }
 }

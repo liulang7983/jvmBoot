@@ -24,6 +24,7 @@ public class Volatile1 {
     }
 
     public static void main(String[] args){
+        System.out.println("counter:"+counter);
         Thread threadA = new Thread(()->{
             while (!initFlag){
                 //System.out.println("runing");
@@ -44,5 +45,6 @@ public class Volatile1 {
             refresh();
         },"threadB");
         threadB.start();
+        System.out.println("counter:"+counter);
     }
 }

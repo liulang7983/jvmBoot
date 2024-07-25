@@ -9,6 +9,7 @@ import java.util.List;
  * @Version 1.0
  */
 public class Demo8 {
+    //从前往后删除第一个发现的
     public static void main(String[] args) {
         List<Long> list=new ArrayList<>();
         list.add(1L);

@@ -15,7 +15,9 @@ public class Demo3 {
         map.put(3L,3);
         map.put(4L,4);
         map.put(5L,5);
-        map.remove(6L);
+        map.put(6L,6);
+        map.put(5L,7);
+        map.remove(5L);
         System.out.println(map);
     }
 }
