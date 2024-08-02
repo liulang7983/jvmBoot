@@ -23,6 +23,7 @@
         <module>modelBoot</module>
         <module>fasBoot</module>
         <module>mybatisBoot</module>
+        <module>futureBoot</module>
     </modules>
 
     <properties>

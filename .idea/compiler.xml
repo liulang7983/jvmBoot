@@ -18,6 +18,7 @@
         <module name="syncronizedBoot" />
         <module name="testBoot" />
         <module name="threadpoolBoot" />
+        <module name="futureBoot" />
         <module name="mybatisBoot" />
         <module name="collectionsBoot" />
         <module name="JMMBoot" />
