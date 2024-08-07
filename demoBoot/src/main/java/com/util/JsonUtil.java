@@ -2,7 +2,7 @@ package com.util;
 
 import com.alibaba.fastjson.JSON;
 import com.bean.ApiResult;
-import com.enumUtil.ERetCode;
+import com.test.enumUtil.ERetCode;
 import com.model.chatMort.ChatMortDetResult;
 import com.model.chatMort.Collateral;
 import com.model.constant.LerisConstants;

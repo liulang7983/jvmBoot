@@ -1,13 +1,8 @@
 package com.util;
 
-import com.alibaba.fastjson.JSONArray;
-import com.bean.OcrField;
-import com.constant.OcrSupportFileExt;
+import com.test.constant.OcrSupportFileExt;
 
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class OcrUtil {

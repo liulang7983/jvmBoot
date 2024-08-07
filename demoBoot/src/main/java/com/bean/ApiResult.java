@@ -1,6 +1,6 @@
 package com.bean;
 
-import com.enumUtil.ERetCode;
+import com.test.enumUtil.ERetCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

@@ -1,6 +1,6 @@
 package com.util;
 
-import com.enumUtil.EnumOcrFileType;
+import com.test.enumUtil.EnumOcrFileType;
 import net.coobird.thumbnailator.Thumbnails;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
