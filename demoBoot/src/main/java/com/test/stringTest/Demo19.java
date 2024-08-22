@@ -1,9 +1,5 @@
 package com.test.stringTest;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-
 /**
  * @Author ming.li
  * @Date 2024/8/5 10:03
@@ -14,7 +10,7 @@ public class Demo19 {
         String ss="sssASD";
         String s = ss.toLowerCase();
         System.out.println(s);
-        Hashtable<Object, Object> objectObjectHashtable = new Hashtable<>();
-        Map map=new HashMap();
+        String ss1="s s s s s      s      s ";
+        System.out.println(ss1.replace(" ",""));
     }
 }
