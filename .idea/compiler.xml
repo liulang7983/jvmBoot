@@ -15,6 +15,7 @@
         <module name="concurrentBoot" />
         <module name="modelBoot" />
         <module name="demoBoot" />
+        <module name="pdfBoot" />
         <module name="syncronizedBoot" />
         <module name="testBoot" />
         <module name="threadpoolBoot" />

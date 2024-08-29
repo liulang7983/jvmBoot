@@ -24,6 +24,7 @@
         <module>fasBoot</module>
         <module>mybatisBoot</module>
         <module>futureBoot</module>
+        <module>pdfBoot</module>
     </modules>
 
     <properties>
