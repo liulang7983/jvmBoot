@@ -15,7 +15,10 @@ import java.util.List;
 public class Demo1 {
     public static void main(String[] args)throws Exception {
         //String pdfPath="C:\\liming\\租赁物\\报告\\远东\\33199826004256469185\\FEHPH24FL070870-L-01-抵押物清单.pdf";
-        String pdfPath="C:\\Users\\14307\\Desktop\\票据.pdf";
+        //String pdfPath="C:\\Users\\14307\\Desktop\\票据.pdf";
+        //String pdfPath="C:\\Users\\14307\\Desktop\\表格\\财报.pdf";
+        //String pdfPath="C:\\liming\\租赁物\\问题\\pdf一行读取为多行\\L23A1738001.pdf";
+        String pdfPath="C:\\liming\\租赁物\\问题\\L23A1738001zu\\L23A1738001租赁设备.pdf";
         List<HexTable> tables = TableExtract.Extract(pdfPath, TableExtract.getLiuShuiConfig(), "", "");
         System.out.println(tables.size());
         for (int i = 0; i <tables.size() ; i++) {
