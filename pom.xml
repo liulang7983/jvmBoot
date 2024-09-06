@@ -25,6 +25,7 @@
         <module>mybatisBoot</module>
         <module>futureBoot</module>
         <module>pdfBoot</module>
+        <module>disruptorBoot</module>
     </modules>
 
     <properties>
