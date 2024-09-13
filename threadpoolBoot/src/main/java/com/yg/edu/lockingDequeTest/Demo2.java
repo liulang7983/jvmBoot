@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @Date 2024/9/12 16:20
  * @Version 1.0
  */
-public class Demo1 {
+public class Demo2 {
     public static ThreadPoolExecutor t1=new ThreadPoolExecutor(10,10,200, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
     public static void main(String[] args) {
         LinkedBlockingQueue<Object> objects = new LinkedBlockingQueue<>(20);
@@ -31,9 +31,10 @@ public class Demo1 {
     }
     public static void test2(LinkedBlockingQueue<Object> objects){
         while (true){
-            //有值则poll获取到值，没有则为空
-            Object poll = objects.poll();
+            Object poll=null;
             try {
+                //有值则take获取到值，没有则阻塞直到获取到值
+                 poll = objects.take();
                 Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
