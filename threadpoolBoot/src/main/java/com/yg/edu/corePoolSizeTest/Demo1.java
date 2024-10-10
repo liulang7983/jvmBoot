@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @Version 1.0
  */
 public class Demo1 {
+    //核心池为1或者核心池为0，要是队列比较大，那基本就成了单线程处理了，没有用到最大线程池数
     public static ThreadPoolExecutor t1=new ThreadPoolExecutor(2,2,200, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
     public static ThreadPoolExecutor t2=new ThreadPoolExecutor(0,2,200, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
     public static void main(String[] args) {
