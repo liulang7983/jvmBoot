@@ -18,11 +18,11 @@ public class Demo1 {
         t1.execute(()->test2(objects));
     }
     public static void test1(LinkedBlockingQueue<Object> objects){
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 10; i++) {
             boolean offer = objects.offer(i);
             System.out.println(i+" 插入结果:"+offer);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -33,12 +33,12 @@ public class Demo1 {
         while (true){
             //有值则poll获取到值，没有则为空
             Object poll = objects.poll();
+            System.out.println("获得值:"+poll);
             try {
                 Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("获得值:"+poll);
         }
     }
 }
