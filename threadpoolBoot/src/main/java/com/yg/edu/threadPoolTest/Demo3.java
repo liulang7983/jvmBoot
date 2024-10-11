@@ -14,7 +14,7 @@ public class Demo3 {
     public static ThreadPoolExecutor poolExecutor=new ThreadPoolExecutor(2,100,1000, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
 
     /**
-     * 此时效果和前面的Demo1无异，相当于单线程
+     * 此时效果和前面的Demo1有差异，他相当于两个线程
      * @param args
      */
     public static void main(String[] args) {

@@ -30,6 +30,7 @@ public class Demo3 {
 
         t2.start();
         t3.start();
+        System.out.println("启动了2,3");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

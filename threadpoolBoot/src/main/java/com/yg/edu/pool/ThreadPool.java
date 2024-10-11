@@ -12,14 +12,15 @@ public class ThreadPool {
         当任务队列短，且设置为shutdown会丢任务
         */
 
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 5000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 5000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(50));
 
-        for (int i=0;i<6;i++){
+        for (int i=0;i<49;i++){
             threadPoolExecutor.submit(new MyRunnable(),i);
         }
         System.out.println(threadPoolExecutor.isTerminated());
         threadPoolExecutor.shutdown();  //running->shutdown
         System.out.println("已停止");
+        System.out.println(threadPoolExecutor.isTerminated());
         //停止后再添加线程，此时会报错说线程的状态为down
         threadPoolExecutor.submit(new MyRunnable1(),1);
         //threadPoolExecutor.shutdownNow(); //running->stop

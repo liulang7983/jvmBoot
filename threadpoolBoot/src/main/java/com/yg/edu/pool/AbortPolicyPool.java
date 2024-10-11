@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @author ming.li
  * @date 2023/7/12 10:50
  */
-public class OrderPool {
+public class AbortPolicyPool {
     public static void main(String[] args) {
         // 此时使用的是默认的AbortPolicy拒绝策略，抛出异常
         ThreadPoolExecutor threadPoolExecutor=new ThreadPoolExecutor(4,8,2000, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>(40));

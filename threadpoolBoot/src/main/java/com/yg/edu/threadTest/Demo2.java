@@ -21,7 +21,6 @@ public class Demo2 {
         Thread t2 = new Thread(() -> {
             try {
                 t1.join();
-                Thread.sleep(200);
                 System.out.println("执行了t2");
                 Thread.sleep(200);
             } catch (InterruptedException e) {
@@ -32,7 +31,6 @@ public class Demo2 {
         Thread t3 = new Thread(() -> {
             try {
                 t2.join();
-                Thread.sleep(200);
                 System.out.println("执行了t3");
                 Thread.sleep(200);
             } catch (InterruptedException e) {

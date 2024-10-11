@@ -37,10 +37,11 @@ public class Demo2 {
     public static void test(Integer i, CountDownLatch downLatch){
         try {
             Thread.sleep(10);
+            System.out.println(Thread.currentThread().getName()+"第:"+i);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }finally {
+            downLatch.countDown();
         }
-        System.out.println(Thread.currentThread().getName()+"第:"+i);
-        downLatch.countDown();
     }
 }
