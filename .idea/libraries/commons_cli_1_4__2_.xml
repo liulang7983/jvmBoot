@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.4 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/commons-cli-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/commons-csv-1.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/commons-lang3-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/fontbox-2.0.24.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/guava-30.0-jre.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/hex-table-base-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/hex-table-engine-1.0.49-20250102.083038-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/hex-youtu-common-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/jai-imageio-core-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/jai-imageio-jpeg2000-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/jbig2-imageio-3.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/jnanoid-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/jts-core-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/mapstruct-1.4.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/pdfbox-2.0.24.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/tabula-1.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/demoBoot/lib/talbe-extract-sdk-1.0.30.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

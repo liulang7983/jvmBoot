@@ -23,7 +23,9 @@ public class Demo1 {
         //String pdfPath="C:\\liming\\租赁物\\报告\\33807221004340133524\\H202408028DDDY-1.pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\国银租赁租赁物清单-20201218.pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\（已压缩）租赁物清单.pdf";
-        String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\租赁物清单.pdf";
+        //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\租赁物清单.pdf";
+        String pdfPath="C:\\liming\\租赁物\\矢量问题汇总\\第四页错列\\01141162000138952100\\20201030181538345.pdf";
+
         long l = System.currentTimeMillis();
         List<HexTable> tables = TableExtract.Extract(pdfPath, TableExtract.getLiuShuiConfig(), "", "");
         long end = System.currentTimeMillis();
