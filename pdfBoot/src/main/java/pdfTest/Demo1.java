@@ -21,8 +21,9 @@ public class Demo1 {
         //String pdfPath="C:\\liming\\租赁物\\问题\\L23A1738001zu\\L23A1738001租赁设备.pdf";
         //String pdfPath="C:\\liming\\租赁物\\矢量\\2\\存在合并行与列\\24DH1N6RMP-租赁物件清单.pdf";
         //String pdfPath="C:\\liming\\租赁物\\报告\\33807221004340133524\\H202408028DDDY-1.pdf";
-        String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\国银租赁租赁物清单-20201218.pdf";
+        //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\国银租赁租赁物清单-20201218.pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\（已压缩）租赁物清单.pdf";
+        String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\租赁物清单.pdf";
         long l = System.currentTimeMillis();
         List<HexTable> tables = TableExtract.Extract(pdfPath, TableExtract.getLiuShuiConfig(), "", "");
         long end = System.currentTimeMillis();

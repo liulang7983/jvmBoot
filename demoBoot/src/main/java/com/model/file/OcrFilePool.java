@@ -1,7 +1,5 @@
 package com.model.file;
 
-
-
 import com.model.contract.OcrEngineOpt;
 import com.model.contract.OcrPageSource;
 import com.model.contract.page.*;

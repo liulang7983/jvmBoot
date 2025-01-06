@@ -7,66 +7,62 @@ import java.io.Serializable;
  * 文本字
  * Created by kang on 2019-1-22.
  */
-public class WordInfo implements Serializable {
-
-    /**
-     * 页数
-     */
-    private int pageNum = 0;
-
-    /**
-     * 行数
-     */
-    private int lineNum = 0;
-
-    /**
-     * 行文本rectangle(x,y,width,height)
-     */
-    private int[] lineRectangle = new int[4];
-
-    /**
-     * 字在文本内容中的位置
-     */
-    private int wordIndex = -1;
-
-    /**
-     * 字的rectangle
-     */
-    private int[] rectangle = new int[4];
-
-    /**
-     * 字的内容
-     */
-    private String wordTxt = "";
-
-    /**
-     * 字所在文本块的最末位置
-     */
-    private int lineMaxWordIndex = 0;
-
-    /**
-     * 字所在文本块的最开头位置
-     */
-    private int lineMinWordIndex = 0;
-
-    /**
-     * 识别引擎返回的字识别的置信度
-     */
-    private double confidence = 0;
+public class WordInfo implements Serializable{
 
 
-    /**
-     * 候选字
-     */
-    private Words[] words = new Words[]{};
+        /**
+         * 页数
+         */
+        private int pageNum = 0;
 
-    public Words[] getWords() {
-        return words;
-    }
+        /**
+         * 行数
+         */
+        private int lineNum = 0;
 
-    public void setWords(Words[] words) {
-        this.words = words;
-    }
+        /**
+         * 行文本rectangle(x,y,width,height)
+         */
+        private int[] lineRectangle = new int[4];
+
+        /**
+         * 字在文本内容中的位置
+         */
+        private int wordIndex = -1;
+
+        /**
+         * 字的rectangle
+         */
+        private int[] rectangle = new int[4];
+
+        /**
+         * 字的内容
+         */
+        private String wordTxt = "";
+
+        /**
+         * 字所在文本块的最末位置
+         */
+        private int lineMaxWordIndex = 0;
+
+        /**
+         * 字所在文本块的最开头位置
+         */
+        private int lineMinWordIndex = 0;
+
+        /**
+         * 识别引擎返回的字识别的置信度
+         */
+        private double confidence = 0;
+
+        private int cellIndex = -1;
+
+        /**
+         * 候选字
+         */
+        private Words[] words = new Words[]{};
+
+        private static final long serialVersionUID = 1L;
 
     public int getPageNum() {
         return pageNum;
@@ -138,5 +134,25 @@ public class WordInfo implements Serializable {
 
     public void setConfidence(double confidence) {
         this.confidence = confidence;
+    }
+
+    public int getCellIndex() {
+        return cellIndex;
+    }
+
+    public void setCellIndex(int cellIndex) {
+        this.cellIndex = cellIndex;
+    }
+
+    public Words[] getWords() {
+        return words;
+    }
+
+    public void setWords(Words[] words) {
+        this.words = words;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 }
