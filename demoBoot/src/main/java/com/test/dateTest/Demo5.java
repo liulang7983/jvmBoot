@@ -17,7 +17,7 @@ public class Demo5 {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String start = "2023-12-31 23:59:59";
         Date startDate1 = format1.parse(start);
-        String start2 = "2023-12-30 23:59:59";
+        String start2 = "2003-12-30 23:59:59";
         Date startDate2 = format1.parse(start2);
         String start3 = "2013-12-30 23:59:59";
         Date startDate3 = format1.parse(start3);
@@ -25,7 +25,10 @@ public class Demo5 {
         list.add(new DateInfo(1,startDate1));
         list.add(new DateInfo(2,startDate2));
         list.add(new DateInfo(3,startDate3));
+        //时间倒序(由大到小排序)
         List<DateInfo> collect = list.stream().sorted(Comparator.comparing(DateInfo::getDate).reversed()).collect(Collectors.toList());
         System.out.println(collect.size());
+        List<DateInfo> collect1 = list.stream().sorted(Comparator.comparing(DateInfo::getDate)).collect(Collectors.toList());
+        System.out.println(collect1.size());
     }
 }
