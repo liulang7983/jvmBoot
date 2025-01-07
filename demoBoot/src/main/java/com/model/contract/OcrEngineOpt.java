@@ -31,4 +31,9 @@ public enum OcrEngineOpt {
      * 高精度表格引擎
      */
     HIGHTABLE
+    ,
+    /**
+     * 高精度表格引擎
+     */
+    PDRREAD
 }

@@ -1,7 +1,7 @@
 package com.model.file;
 
 
-
+import com.alibaba.fastjson.JSONObject;
 import com.model.Func;
 import com.model.contract.Json2dataConstants;
 import com.model.contract.page.*;
@@ -45,22 +45,29 @@ class IntsigEngineImpl extends OcrFilePool {
             if (0 == sbJSON.length()){
                 return;
             }
-            IntsigTable intsigTable = Func.jsonString2Object(sbJSON.toString(),IntsigTable.class);
-            //识别出来的旋转角度
-            double angle = intsigTable.getResult().getAngle();
-            Tables[] tables = intsigTable.getResult().getTables();
-            for (Tables table:tables){
-                if (table.getType().equals(Json2dataConstants.PLAIN)){
-                    parsePlain(page, lineNum, wordIndexNum, table, sbLineText, sbtxt, pageNum);
+            JSONObject jsonObject = JSONObject.parseObject(sbJSON.toString());
+            Integer isPdfRead = jsonObject.getInteger("isPdfRead");
+            if (isPdfRead!=null&&isPdfRead.equals(1)){
+                PdfReadUtil.ReadPage(file,page,sbText,lineNum,wordIndexNum);
+            }else {
+                IntsigTable intsigTable = Func.jsonString2Object(sbJSON.toString(),IntsigTable.class);
+                //识别出来的旋转角度
+                double angle = intsigTable.getResult().getAngle();
+                Tables[] tables = intsigTable.getResult().getTables();
+                for (Tables table:tables){
+                    if (table.getType().equals(Json2dataConstants.PLAIN)){
+                        parsePlain(page, lineNum, wordIndexNum, table, sbLineText, sbtxt, pageNum);
 
-                }else if (table.getType().equals(Json2dataConstants.TABLE_WITH_LINE)||
-                        table.getType().equals(Json2dataConstants.TABLE_WITHOUT_LINE)){
-                    parseLineOrNoLine(page, lineNum, wordIndexNum, table, sbtxt, sbLineText, pageNum);
+                    }else if (table.getType().equals(Json2dataConstants.TABLE_WITH_LINE)||
+                            table.getType().equals(Json2dataConstants.TABLE_WITHOUT_LINE)){
+                        parseLineOrNoLine(page, lineNum, wordIndexNum, table, sbtxt, sbLineText, pageNum);
+                    }
                 }
+                page.setContent(sbtxt.toString());
+                page.setAngle(angle);
+                sbText.append(sbtxt);
             }
-            page.setContent(sbtxt.toString());
-            page.setAngle(angle);
-            sbText.append(sbtxt);
+
         }catch (Exception e){
             System.out.println("");
         }

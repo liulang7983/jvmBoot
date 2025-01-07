@@ -33,6 +33,8 @@ public class OcrFileFactory {
                 break;
             case HIGHTABLE:
                 obj=new HighTableEngineEngineImpl();
+            case PDRREAD:
+                obj=new PdfReadImpl();
         }
         obj.setEngineOpt(opt);
         return obj;
