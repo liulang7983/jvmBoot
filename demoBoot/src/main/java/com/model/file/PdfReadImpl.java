@@ -87,9 +87,9 @@ public class PdfReadImpl extends OcrFilePool{
                         InitLineMaxWordIndex(lineCount, page);
                         /*生成段落信息*/
                     }
-                    lineCount++;
+                    cellIndex++;
                 }
-                cellIndex++;
+                lineCount++;
             }
             page.setContent(sbtxt.toString());
             page.setAngle(0);

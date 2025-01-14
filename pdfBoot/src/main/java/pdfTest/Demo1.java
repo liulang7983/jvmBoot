@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import technology.tabula.TextChunk;
 import technology.tabula.TextElement;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -31,7 +32,9 @@ public class Demo1 {
         //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\租赁物清单.pdf";
         //String pdfPath="C:\\liming\\租赁物\\矢量问题汇总\\第四页错列\\01141162000138952100\\20201030181538345.pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\24223200003049997936\\租赁物清单.pdf";
-        String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\16532191002011163073\\WXL32201025租赁物清单.pdf";
+        //String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\16532191002011163073\\WXL32201025租赁物清单.pdf";
+        String pdfPath="C:\\liming\\租赁物\\报告\\租赁登记.pdf";
+
         long l = System.currentTimeMillis();
         List<HexTable> tables = TableExtract.Extract(pdfPath, TableExtract.getLiuShuiConfig(), "", "");
         long end = System.currentTimeMillis();
@@ -41,6 +44,8 @@ public class Demo1 {
         Integer H=2480;
         Double h=1d;
         Double w=1d;
+        BigDecimal h1=new BigDecimal("0");
+        BigDecimal w1=new BigDecimal("0");
         JSONObject jsonObject = new JSONObject();
         JSONArray body = new JSONArray();
         for (int i = 0; i <tables.size() ; i++) {
@@ -49,6 +54,8 @@ public class Demo1 {
             float pageWidth = hexTable.getPageWidth();
             h=((double) H)/pageHeight;
             w=((double) W)/pageWidth;
+            h1=new BigDecimal(String.valueOf(H)).divide(new BigDecimal(String.valueOf(pageHeight)),20,BigDecimal.ROUND_HALF_UP);
+            w1=new BigDecimal(String.valueOf(W)).divide(new BigDecimal(String.valueOf(pageWidth)),20,BigDecimal.ROUND_HALF_UP);
             List<CellItem> cellItemList = hexTable.getCellItemList();
             JSONObject boy = new JSONObject();
             JSONArray cells = new JSONArray();
