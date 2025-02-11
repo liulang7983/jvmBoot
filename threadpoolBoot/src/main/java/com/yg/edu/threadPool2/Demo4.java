@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Demo4 {
     public static ThreadPoolExecutor executor=new ThreadPoolExecutor(4,8,2000, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
-    //核心池为4，队列无界，则核心池肯定全部创建，最大线程不会创建
+    //核心池为4，队列无界，队列放不满，则核心池肯定全部创建，最大线程不会创建
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             executor.execute(new Runnable() {

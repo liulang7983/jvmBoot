@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author ming.li
  * @Date 2024/11/20 8:50
+ * 获取线程数
  * @Version 1.0
  */
 public class Demo1 {

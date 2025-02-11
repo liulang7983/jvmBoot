@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Demo3 {
     public static ThreadPoolExecutor executor=new ThreadPoolExecutor(0,4,2000, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
-    //核心池为0，队列无界，则相当于单线程
+    //核心池为0，此时会默认创建一个线程用来跑任务，队列无界，则相当于单线程
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             executor.execute(new Runnable() {

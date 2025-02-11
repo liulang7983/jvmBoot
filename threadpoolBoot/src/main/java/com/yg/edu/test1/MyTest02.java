@@ -55,7 +55,7 @@ class MyRunnable2 implements Runnable{
     public void run() {
         //获取线程的名称,打印一句话
         String name = Thread.currentThread().getName();
-        System.out.println(name+"执行了任务..."+id);
+        System.out.println(name+"  执行了任务..."+id);
     }
 }
 
