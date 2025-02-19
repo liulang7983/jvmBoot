@@ -18,6 +18,7 @@ public class Demo1 {
      * 然后又因为必须任务队列满才会添加核心池到最大线程池之间的线程，那么此时队列是无界也就是Integer.MAX
      * 300个任务不会填满他，所以全部放在任务队列，等保底任务执行他们
      * 此时相当于核心池为1
+     * 相当于当线程执行了300个任务
      * @param args
      */
     public static void main(String[] args) {

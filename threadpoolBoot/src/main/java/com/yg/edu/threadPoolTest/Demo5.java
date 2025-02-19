@@ -20,10 +20,10 @@ public class Demo5 {
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("线程数:"+executor.getActiveCount());
+                    System.out.println("运行中线程数:"+executor.getActiveCount());
                     System.out.println(x);
                     try {
-                        Thread.sleep(4000);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

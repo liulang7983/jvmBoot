@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class Jmm05_CodeReorder {
+public class ReorderTest {
     /**
      正常顺序执行可能出现的情况
      a = 1;x = b;b = 1;y = a;  结果 x=0;y=1
