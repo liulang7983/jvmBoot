@@ -29,6 +29,11 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.vsrsion}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version>
+        </dependency>
     </dependencies>
 
 </project>

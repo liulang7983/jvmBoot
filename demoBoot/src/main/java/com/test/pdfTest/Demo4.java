@@ -10,6 +10,6 @@ import com.util.PdfToImage;
  */
 public class Demo4 {
     public static void main(String[] args) {
-        PdfToImage.pdfToImage("C:\\liming\\李明-永赢入场材料2025-02-14\\背景调查报告(2).pdf");
+        PdfToImage.pdfToImage("C:\\liming\\李明-永赢入场材料2025-02-14\\背景调查报告20250220.pdf");
     }
 }

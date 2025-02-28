@@ -1,7 +1,5 @@
 package com.yg.edu.lock;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.locks.LockSupport;
 
 
@@ -19,12 +17,14 @@ public class ThreadLockSupport {
             @Override
             public void run() {
                 Thread current = Thread.currentThread();
-                System.out.println("{},开始执行!"+current.getName());
+                System.out.println(current.getName()+"开始执行!");
                 for(;;){//spin 自旋
-                    System.out.println("准备park住当前线程：{}...."+current.getName());
+                    System.out.println("准备park住当前线程："+current.getName());
                     LockSupport.park();
+                    //屏蔽这一行代码就会一直循环，不屏蔽就会跑两次就卡住为啥？
                     System.out.println(Thread.interrupted());
-                    System.out.println("当前线程{}已经被唤醒...."+current.getName());
+
+                    System.out.println("当前线程已经被唤醒："+current.getName());
 
                 }
             }
@@ -34,14 +34,14 @@ public class ThreadLockSupport {
 
         try {
             Thread.sleep(2000);
-            System.out.println("准备唤醒{}线程!"+t0.getName());
+            System.out.println("准备唤醒线程:"+t0.getName());
             LockSupport.unpark(t0);
             Thread.sleep(2000);
-            System.out.println("准备清除标记{}"+t0.getName());
+            System.out.println("准备清除标记:"+t0.getName());
             //标记清除,标记清除了那此时就会自动unpark一次但是后续也无法再次unpark
             t0.interrupt();
             Thread.sleep(2000);
-            System.out.println("清除标记了,再次unpark{}"+t0.getName());
+            System.out.println("清除标记了,再次unpark:"+t0.getName());
             //标记清除了那此时就会自动unpark一次但是后续也无法再次unpark
             //LockSupport.unpark(t0);
         } catch (InterruptedException e) {
