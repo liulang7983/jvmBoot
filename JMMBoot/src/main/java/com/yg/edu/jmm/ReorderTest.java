@@ -2,7 +2,9 @@ package com.yg.edu.jmm;
 
 import lombok.extern.slf4j.Slf4j;
 
-
+/**
+ * 指令重排问题
+ */
 @Slf4j
 public class ReorderTest {
     /**

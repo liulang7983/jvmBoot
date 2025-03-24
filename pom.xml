@@ -26,6 +26,7 @@
         <module>futureBoot</module>
         <module>pdfBoot</module>
         <module>disruptorBoot</module>
+        <module>jvmTest</module>
     </modules>
 
     <properties>
