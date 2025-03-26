@@ -15,4 +15,7 @@ public interface PaymentService {
     void selectList();
     List<Payment> selectListSerial();
     List<Payment> selectListConcurrent();
+    Payment selectById(Integer id);
+    void requiredNew(Payment payment);
+    void required(Payment payment);
 }

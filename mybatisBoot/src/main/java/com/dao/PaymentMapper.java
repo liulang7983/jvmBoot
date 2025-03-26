@@ -16,4 +16,6 @@ public interface PaymentMapper {
     List<Payment> selectList();
     List<Payment> selectListByid(List list);
     List<Payment> selectListAllByid(List list);
+    int update(Payment payment);
+    Payment selectById(Integer id);
 }

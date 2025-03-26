@@ -5,6 +5,8 @@ import com.dao.PaymentMapper;
 import com.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,5 +156,20 @@ public class PaymentServiceImpl implements PaymentService {
         long end = System.currentTimeMillis();
         System.out.println("selectListConcurrent耗时:"+(end-start));
         return paymentList;
+    }
+
+    @Override
+    public Payment selectById(Integer id) {
+        return paymentMapper.selectById(id);
+    }
+    @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void requiredNew(Payment payment){
+        paymentMapper.update(payment);
+    }
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void required(Payment payment){
+        paymentMapper.update(payment);
     }
 }
