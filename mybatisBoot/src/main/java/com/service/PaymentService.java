@@ -18,4 +18,6 @@ public interface PaymentService {
     Payment selectById(Integer id);
     void requiredNew(Payment payment);
     void required(Payment payment);
+    void notSupported(Payment payment);
+    void never(Payment payment);
 }

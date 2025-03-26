@@ -32,6 +32,16 @@ public class TransactionalController {
         transactionalService.required(payment);
         return "成功";
     }
+    @RequestMapping("notSupported")
+    public String notSupported(@RequestBody Payment payment){
+        transactionalService.notSupported(payment);
+        return "成功";
+    }
+    @RequestMapping("never")
+    public String never(@RequestBody Payment payment){
+        transactionalService.never(payment);
+        return "成功";
+    }
     @RequestMapping("selectById")
     public Payment selectById(Integer id){
         return paymentService.selectById(id);

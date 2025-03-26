@@ -10,4 +10,6 @@ import com.bean.Payment;
 public interface TransactionalService {
     void requiredNew(Payment payment);
     void required(Payment payment);
+    void notSupported(Payment payment);
+    void never(Payment payment);
 }

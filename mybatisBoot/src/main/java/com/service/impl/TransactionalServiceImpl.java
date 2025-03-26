@@ -42,6 +42,29 @@ public class TransactionalServiceImpl implements TransactionalService {
     public void required(Payment payment) {
         paymentService.required(payment);
         int a = 1 / 0;
+    }
+    /**
+     * 此时paymentService.notSupported的事务传播行为为:
+     * Propagation.NOT_SUPPORTED：以非事务方式执行操作，如果当前存在事务，则挂起当前事务
+     * 那么此时他隔离了我本地的事务，我本身的异常不会影响他，所以不回滚了
+     * @param payment
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void notSupported(Payment payment) {
+        paymentService.notSupported(payment);
+        int a = 1 / 0;
+    }
 
+    /**
+     * 此时paymentService.never的事务传播行为为:
+     * Propagation.NEVER：以非事务方式执行操作，如果当前存在事务，则抛出异常
+     * 那么此时他的上层存在事务，则直接报错
+     * @param payment
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void never(Payment payment) {
+        paymentService.never(payment);
     }
 }

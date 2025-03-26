@@ -172,4 +172,16 @@ public class PaymentServiceImpl implements PaymentService {
     public void required(Payment payment){
         paymentMapper.update(payment);
     }
+
+    @Override
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void notSupported(Payment payment) {
+        paymentMapper.update(payment);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.NEVER)
+    public void never(Payment payment) {
+        paymentMapper.update(payment);
+    }
 }
