@@ -36,8 +36,8 @@ public class Demo1 {
         //String pdfPath="C:\\liming\\租赁物\\报告\\租赁登记.pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\租赁物\\24110050003444165112\\附件1_融资性售后回租项目租赁物清单(动产设备).pdf";
         //String pdfPath="C:\\Users\\14307\\Desktop\\租赁物\\37803210004927821124\\正泰安能租赁物清单（简易版）.pdf";
-        String pdfPath="C:\\Users\\14307\\Desktop\\1\\32414725004156395836\\附件1_融资性售后回租项目租赁物清单(动产设备).pdf";
-
+        //String pdfPath="C:\\Users\\14307\\Desktop\\1\\32414725004156395836\\附件1_融资性售后回租项目租赁物清单(动产设备).pdf";
+        String pdfPath="C:\\Users\\14307\\Desktop\\pdf查重\\矢量\\183010142b790\\30453160004057080300\\L24B101368租赁设备.pdf";
 
         long l = System.currentTimeMillis();
         List<HexTable> tables = TableExtract.Extract(pdfPath, TableExtract.getLiuShuiConfig(), "", "");
@@ -67,7 +67,7 @@ public class Demo1 {
                 CellItem cellItem = cellItemList.get(j);
                 String tableId = cellItem.getTableId();
                 TextChunk textChunk = cellItem.getTextChunk();
-                String text =textChunk .getText();
+                String text =textChunk.getText();
                 //textChunk.get
                 System.out.println(text);
                 JSONObject cell = new JSONObject();
@@ -108,8 +108,6 @@ public class Demo1 {
                     cell.put("texts",texts);
                     cell.put("coords",coords);
                 }
-
-
                 cell.put("splitCell",false);
                 cell.put("itemstring",hexRectangle.getText().replaceAll("\\r\\n", ""));
                 cells.add(cell);
@@ -123,6 +121,5 @@ public class Demo1 {
         jsonObject.put("body",body);
         jsonObject.put("type",1);
             System.out.println(jsonObject);
-
     }
 }
