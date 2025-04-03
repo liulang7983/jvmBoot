@@ -68,6 +68,7 @@ public class ExcelUtils {
                         }
                     }
                 }
+                //此处代码有问题，自适应和设置宽度互相冲突
                 if (newColumnWidth>columnWidth){
                     sheet.autoSizeColumn(col);
                 }
