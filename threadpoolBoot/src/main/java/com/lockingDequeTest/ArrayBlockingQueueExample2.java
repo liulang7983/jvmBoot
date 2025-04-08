@@ -19,7 +19,7 @@ public class ArrayBlockingQueueExample2 {
                 for (int i = 0; i < 10; i++) {
                     queue.put(i);
                     System.out.println("生产者添加元素 " + i + " 到队列，当前队列大小: " + queue.size());
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

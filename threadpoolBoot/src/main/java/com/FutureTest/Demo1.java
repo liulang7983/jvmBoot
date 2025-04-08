@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 /**
  * @Author ming.li
  * @Date 2025/3/14 14:08
- * 多线程通过get(long timeout, TimeUnit unit)，超时放弃并不能释放线程死锁
+ * 多线程通过get(long timeout, TimeUnit unit)，超时放弃并不能释放线程，线程还会执行，只是结果获取不到
  * @Version 1.0
  */
 public class Demo1 {
@@ -19,7 +19,7 @@ public class Demo1 {
             Future<Integer> submit = threadPoolExecutor.submit(() -> {
                 try {
                     System.out.println("开始处理:"+a);
-                    Thread.sleep(300000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -31,7 +31,7 @@ public class Demo1 {
         System.out.println("任务创建完成");
         for (int i = 0; i < list.size(); i++) {
             try {
-                Integer integer = list.get(i).get(10, TimeUnit.SECONDS);
+                Integer integer = list.get(i).get(3, TimeUnit.SECONDS);
                 System.out.println("答应输出:"+integer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
