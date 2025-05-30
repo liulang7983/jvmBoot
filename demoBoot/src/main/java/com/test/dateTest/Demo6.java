@@ -16,7 +16,7 @@ public class Demo6 {
     public void test1()throws Exception{
         Calendar c = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String start = "2023-12-31 23:59:59";
+        String start = "2023-12-21 13:59:59";
         Date startDate1 = format.parse(start);
         //过去七天
         c.setTime(startDate1);
@@ -29,7 +29,7 @@ public class Demo6 {
     public void test2()throws Exception{
         Calendar c = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String start = "2023-12-31 23:59:59";
+        String start = "2023-12-21 13:59:59";
         Date startDate1 = format.parse(start);
         //这个会弄成这个日期的月初1号，再减去七天
         c.setTime(startDate1);
