@@ -1,5 +1,5 @@
 
-package com.fail.a;
+package com.fail.demo1;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -9,14 +9,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author ming.li
  * @Date 2025/4/2 10:42
- * main调用test1和test2用了同一个线程池，任务test2需要准备时间，此时线程核心池全部被test1占用
- * 但是test1调用test2，有CountDownLatch，需要teset2全部跑完才能继续往下走，此时已经没有线程来执行test2了
- * teset1等待teset2执行完继续往下走，test2在等test1执行完成后让出线程执行任务
+ * 此时test1和test2用的不同的线程池，所以不影响，正常执行
  * @Version 1.0
  */
-public class DemoFail {
+public class DemoSucceed {
     public static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 3000, TimeUnit.MINUTES, new LinkedBlockingDeque<>());
-
+    public static ThreadPoolExecutor threadPoolExecutor1 = new ThreadPoolExecutor(3, 3, 3000, TimeUnit.MINUTES, new LinkedBlockingDeque<>());
     public static void main(String[] args) {
         for (int i = 0; i < 4; i++) {
             threadPoolExecutor.execute(() -> test1());
@@ -34,7 +32,7 @@ public class DemoFail {
                 e.printStackTrace();
             }
             int finalI = i;
-            threadPoolExecutor.execute(() -> test2(downLatch, finalI));
+            threadPoolExecutor1.execute(() -> test2(downLatch, finalI));
         }
         try {
             downLatch.await();

@@ -1,4 +1,4 @@
-package com.fail.b1;
+package com.fail.demo3;
 
 import java.util.concurrent.*;
 

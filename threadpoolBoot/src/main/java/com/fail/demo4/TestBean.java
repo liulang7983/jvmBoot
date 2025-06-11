@@ -1,4 +1,4 @@
-package com.fail.c;
+package com.fail.demo4;
 
 /**
  * @Author ming.li

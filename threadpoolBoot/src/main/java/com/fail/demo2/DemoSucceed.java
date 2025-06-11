@@ -1,5 +1,5 @@
 
-package com.fail.b;
+package com.fail.demo2;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingDeque;
