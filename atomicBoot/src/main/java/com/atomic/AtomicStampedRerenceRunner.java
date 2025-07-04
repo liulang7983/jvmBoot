@@ -7,6 +7,7 @@ import java.util.concurrent.locks.LockSupport;
 public class AtomicStampedRerenceRunner {
 
     //此时是有个版本号，每次修改版本号+1,哪怕值出现ABA的问题，但是版本号一直在增加，此时也会更新失败
+    //乐观锁
     private static AtomicStampedReference<Integer> atomicStampedRef =
             new AtomicStampedReference<>(1, 0);
 

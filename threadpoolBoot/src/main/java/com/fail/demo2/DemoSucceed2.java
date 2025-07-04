@@ -8,7 +8,7 @@ import java.util.concurrent.*;
  * @Date 2025/4/2 10:42
  * 此时test1使用的线程池是核心池只有1，那么此时test1里面调用的test2出现了死锁，导致CountDownLatch一直阻塞
  * 那么我们可以让test2可能死锁的地方加上线程池超时的内判定，超过多少时间直接放弃跳过，这样CountDownLatch就不会一直阻塞
- * 其实这里有问题当多个任务超时响应的时候，可以跑完的任务可能全部被卡主的任务给整超时了，误判率很高，b1解决
+ * 其实这里有问题当多个任务超时响应的时候，可以跑完的任务可能全部被卡主的任务给整超时了，误判率很高，demo3解决
  * @Version 1.0
  */
 public class DemoSucceed2 {
