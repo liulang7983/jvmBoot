@@ -23,9 +23,7 @@ public class ThreadLockSupport {
                     LockSupport.park();
                     //屏蔽这一行代码就会一直循环，不屏蔽就会跑两次就卡住为啥？
                     System.out.println(Thread.interrupted());
-
                     System.out.println("当前线程已经被唤醒："+current.getName());
-
                 }
             }
         },"t0");

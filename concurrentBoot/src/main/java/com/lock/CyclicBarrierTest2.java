@@ -31,7 +31,6 @@ public class CyclicBarrierTest2 {
                     map.put(Thread.currentThread().getName(), score);
                     System.out.println(Thread.currentThread().getName()
                             +"同学的平均成绩为："+score);
-
                         //执行完运行await(),等待所有学生平均成绩都计算完毕
                     try {
                         cb.await();
