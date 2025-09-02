@@ -38,6 +38,10 @@ public class User {
 
     }
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(Long id, String name, String message) {
         this.id = id;
         this.name = name;

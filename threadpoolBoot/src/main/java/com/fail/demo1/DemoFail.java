@@ -18,13 +18,13 @@ public class DemoFail {
     public static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 3000, TimeUnit.MINUTES, new LinkedBlockingDeque<>());
 
     public static void main(String[] args) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             threadPoolExecutor.execute(() -> test1());
         }
     }
 
     public static void test1() {
-        System.out.println("test1开始");
+        System.out.println(Thread.currentThread().getName()+":test1开始");
         CountDownLatch downLatch = new CountDownLatch(3);
         for (int i = 0; i < 3; i++) {
             try {

@@ -17,8 +17,9 @@ public class ArrayBlockingQueueExample1 {
         Thread producer = new Thread(() -> {
             try {
                 for (int i = 0; i < 10; i++) {
+                    System.out.println("生产者添加元素 " + i + " 到队列");
                     queue.put(i);
-                    System.out.println("生产者添加元素 " + i + " 到队列，当前队列大小: " + queue.size());
+                    //System.out.println("生产者添加元素 " + i + " 到队列，当前队列大小: " + queue.size());
                     Thread.sleep(500);
                 }
             } catch (InterruptedException e) {
@@ -31,8 +32,9 @@ public class ArrayBlockingQueueExample1 {
             try {
                 for (int i = 0; i < 10; i++) {
                     Thread.sleep(2000);
+                    System.out.println("消费者取出元素 ");
                     Integer element = queue.take();
-                    System.out.println("消费者取出元素 " + element + "，当前队列大小: " + queue.size());
+                    //System.out.println("消费者取出元素 " + element + "，当前队列大小: " + queue.size());
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

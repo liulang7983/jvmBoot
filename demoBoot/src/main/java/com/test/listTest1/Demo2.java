@@ -13,10 +13,10 @@ public class Demo2 {
     public static void main(String[] args) {
         List<Integer> list1=new ArrayList<>();
         List<Integer> list2=new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 1000; i++) {
             list1.add(i);
         }
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100000; i++) {
             list2.add(i);
         }
         long l = System.currentTimeMillis();
@@ -25,7 +25,7 @@ public class Demo2 {
         System.out.println("大的循环里面循环小的:"+(l1-l));
 
         l = System.currentTimeMillis();
-        System.out.println(bigToLittle(list1,list2));
+        System.out.println(littleToBig(list1,list2));
         l1 = System.currentTimeMillis();
         System.out.println("小的循环里面循环大的:"+(l1-l));
     }
