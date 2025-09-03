@@ -4,6 +4,7 @@ import model.factory.Shape;
 import model.factory.ShapeFactory;
 
 /**
+ * 工厂模式
  * @author ming.li
  * @date 2023/11/22 14:34
  */

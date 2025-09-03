@@ -9,7 +9,9 @@ public class Singleton {
     // 使用volatile关键字防止指令重排序
     private static volatile Singleton instance;
 
-    private Singleton() {}
+    private Singleton() {
+        // 私有构造函数，防止外部实例化
+    }
 
     // 提供全局访问点
     public static Singleton getInstance() {

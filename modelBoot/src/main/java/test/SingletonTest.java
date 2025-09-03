@@ -3,6 +3,7 @@ package test;
 import model.singleton.Singleton;
 
 /**
+ * 单例模式
  * @author ming.li
  * @date 2023/11/22 14:30
  */
