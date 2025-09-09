@@ -27,6 +27,7 @@
         <module>pdfBoot</module>
         <module>disruptorBoot</module>
         <module>jvmTest</module>
+        <module>TransactionalBoot</module>
     </modules>
 
     <properties>
