@@ -1,6 +1,5 @@
 package com.jmm;
 
-import com.jmm.util.UnsafeInstance;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -36,14 +35,14 @@ public class Jmm05_CodeReorder1 {
                     shortWait(10000);
                     a = 1;
                     x = b;
-                    UnsafeInstance.reflectGetUnsafe().fullFence();
+                    //UnsafeInstance.reflectGetUnsafe().fullFence();
                 }
             });
 
             Thread t2 = new Thread(new Runnable() {
                 public void run() {
                     b = 1;
-                    UnsafeInstance.reflectGetUnsafe().fullFence();
+                    //UnsafeInstance.reflectGetUnsafe().fullFence();
                     y = a;
                 }
             });
@@ -54,8 +53,8 @@ public class Jmm05_CodeReorder1 {
             t2.join();
 
             String result = "第" + i + "次 (" + x + "," + y + "）";
+            System.out.println(result);
             if(x == 0 && y == 0) {
-                System.out.println(result);
                 break;
             } else {
                 log.info(result);
